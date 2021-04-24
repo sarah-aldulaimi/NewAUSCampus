@@ -749,7 +749,7 @@ about
 }
 
 .features-item {
-  border-radius: 5px;
+border-radius:20px;
   padding: 60px 30px;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
@@ -801,6 +801,17 @@ promotion
   margin-top: -200px;
 }
 
+.bottom-image-decor {
+  background-image: url(../images/bottom-bg-decor.png);
+  background-repeat: no-repeat;
+  background-position: bootom center;
+  position: absolute;
+  width: 100%;
+  display: inline-block;
+  height: 110%;
+  margin-top: -200px;
+}
+
 #promotion {
   padding: 100px 0px;
 }
@@ -838,7 +849,7 @@ promotion
 
 /*
 --------------------------------------------
-testimonials
+faq
 --------------------------------------------
 */
 .right-image-decor {
@@ -966,7 +977,7 @@ footer
 footer {
   margin-top: 200px;
   padding-top: 120px;
-  background-image: url(../images/footer-bg.png);
+  background-image: url(../images/footer-bg1.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
