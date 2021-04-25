@@ -25,8 +25,8 @@ a:hover {
   outline: none; }
 
 #form-wrapper{
-	margin-top:0;
-  min-height: 100vh;
+  margin-top:0;
+  min-height: 70vh;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -168,15 +168,6 @@ button.main-button:hover {
     display: none;
     content: '\f26b'; }
 
-/* @media (max-width: 991px) { */
-/*   .inner { */
-/*     min-width: 768px; } } */
-/* @media (max-width: 767px) { */
-/*   .inner { */
-/*     min-width: auto; */
-/*     background: none; */
-/*     padding-top: 0; */
-/*     padding-bottom: 0; } */
 #date, #startTime, #endTime{
 	  color: rgb(164, 62, 46);
   padding: 12px;
@@ -192,5 +183,54 @@ button.main-button:hover {
     padding-right: 15px;
     padding-left: 15px; } 
   
+#register{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+left: 50%
 
+}
+.form-wrapper input[type="text"],
+.form-wrapper input[type="password"] {
+ 	  color: rgb(164, 62, 46);
+  padding: 12px;
+  width: 100%;
+  border-radius:20px;
+   border: 1px solid #ccc;
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box h1 {
+    color: bloskc;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 300px;
+    border-color: #863d2f;
+}
+
+input[type="submit"]{
+    border: 0;
+    background: rgb(164, 62, 46);
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #a43e2e;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #a43e2e
+}
 /*# sourceMappingURL=style.css.map */
