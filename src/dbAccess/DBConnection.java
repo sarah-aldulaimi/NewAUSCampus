@@ -11,11 +11,11 @@ import java.sql.Statement;
 public class DBConnection 
 {
 	// modify the URL with the schema name you created
-	String DBURL = "jdbc:mysql://localhost:3306/accounts";  
+	String DBURL = "jdbc:mysql://localhost:3306/sys";  
 
 	//change to your username and password
 	String DBUSER = "root";
-	String DBPASS = "root";
+	String DBPASS = "Hrsrra3051999!";
 	
 	boolean validLogin = false;
 

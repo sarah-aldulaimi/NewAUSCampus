@@ -48,7 +48,7 @@ public class RegistrationServlet extends HttpServlet
 		{
 			if(data.registerAccount(fname, lname, user, password, type))
 			{
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("staffindex.jsp");
 			}
 		}
 		catch(SQLException e)
@@ -57,3 +57,4 @@ public class RegistrationServlet extends HttpServlet
 		}
 	}
 }
+
