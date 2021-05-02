@@ -3,17 +3,19 @@ package controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import dbAccess.DataHandler;
 
+/**
+ * Servlet implementation class Registrationservlet
+ */
 @WebServlet("/RegistrationServlet")
-public class RegistrationServlet extends HttpServlet 
-{
+public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DataHandler data = new DataHandler();
 
@@ -57,4 +59,3 @@ public class RegistrationServlet extends HttpServlet
 		}
 	}
 }
-
