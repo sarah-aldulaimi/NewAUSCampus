@@ -53,7 +53,7 @@ public class DBConnection
 	{
 		statement = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		// retrieve username and password from database
-		String query = "SELECT username FROM testing ORDER BY username ";
+		String query = "SELECT email FROM users ORDER BY email ";
 		rs = statement.executeQuery(query);
 		return rs;		
 	}

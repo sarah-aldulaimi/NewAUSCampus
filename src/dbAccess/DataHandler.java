@@ -15,9 +15,9 @@ public class DataHandler
 		dbCon = new DBConnection();
 	}
 	
-	public boolean checkAccount(String user, String pass) throws SQLException 
+	public boolean checkAccount(String email, String pass) throws SQLException 
 	{
-		String query = "SELECT username, password FROM testing where username = '" + user + "' and password = '" + pass + "'";
+		String query = "SELECT email, pass_word FROM users where email = '" + email + "' and pass_word = '" + pass + "'";
 		System.out.println(query);
 		
 		rs = dbCon.executeStatement(query);
@@ -27,50 +27,44 @@ public class DataHandler
 		return false;
 	}
 	
-	public boolean registerAccount(String fname, String lname, String username, String password, int type) throws SQLException
+	public boolean registerAccount(String fname, String lname, String email, String password, int type) throws SQLException
 	{
-		String query = "insert into testing values ('" + fname + "', '" + lname + "', '" + username + "', '" + password + "', " + type + ")";
+		String query = "insert into users values ('" + fname + "', '" + lname + "', '" + email + "', '" + password + "', " + type + ")";
 		System.out.println(query);
 
 		int result = dbCon.executeUpdate(query);
 
 		if (result == 1) 
 		{
-			System.out.println("USER ADDED SUCCESS");
+			System.out.println("USER ADDED SUCCESSFULLY");
 			return true;
 		}
 
 		return false;
 	}
 	
-	public int checkAccountType(String user, String pass) throws SQLException
+	public int checkAccountType(String email, String pass) throws SQLException
 	{
-		String query = "select type from testing where username = '" + user + "' and password = '" + pass + "'";
+		String query = "select user_type from users where email = '" + email + "' and pass_word = '" + pass + "'";
 		rs = dbCon.executeStatement(query);
 		rs.beforeFirst();
 		rs.next();
 		
-		return rs.getInt("type");
+		return rs.getInt("user_type");
 	}
-	
-	
-	
-	
 	
 	public ArrayList<String> getAccounts() throws SQLException {
 		// List of usernames and passwords in the database
 		ArrayList<String> users = new ArrayList<String>();
-		String query = "SELECT username, password FROM users ORDER BY username ";
+		String query = "SELECT email, pass_word FROM users ORDER BY email ";
 
 		rs = dbCon.executeStatement(query);
 		
 		rs.beforeFirst();
 		while(rs.next()) { 
-			users.add(rs.getString("username"));
-			users.add(rs.getString("password"));
-
+			users.add(rs.getString("email"));
+			users.add(rs.getString("pass_word"));
 		}
 		return users;
-
 	}
 }

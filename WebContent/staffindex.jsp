@@ -73,7 +73,7 @@
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
     
-   <%  String name = request.getParameter("name");%>
+   <%  String name = request.getParameter("full_name");%>
     
     
         <!-- ***** Header Text Start ***** -->

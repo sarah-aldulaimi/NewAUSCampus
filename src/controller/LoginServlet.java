@@ -31,31 +31,31 @@ public class LoginServlet extends HttpServlet {
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 		{
-			String user = request.getParameter("username");
+			String email = request.getParameter("email");
 			String password = request.getParameter("password");
 			request.setAttribute("id", 5); //stud id with sql
 			request.setAttribute("type", 0); //type with sql
-			System.out.println("username entered is " + user + " and password entered is " + password);
-			if(model.validateUser(user, password)) 
+			System.out.println("email entered is " + email + " and password entered is " + password);
+			if(model.validateUser(email, password)) 
 			{
 				//check type, then redirect appropriately
-				if(model.getAccountType(user, password) == 0)
+				if(model.getAccountType(email, password) == 0)
 				{
 					request.setAttribute("type", 0);
 					RequestDispatcher req = request.getRequestDispatcher("studentindex.html");
 					req.include(request, response);
 				}
-				else if(model.getAccountType(user, password) == 1)
+				else if(model.getAccountType(email, password) == 1)
 				{
 					request.setAttribute("type", 1);
-					RequestDispatcher req = request.getRequestDispatcher("staffindex.html");
+					RequestDispatcher req = request.getRequestDispatcher("staffindex.jsp");
 					req.include(request, response);
 				}
 			} 
 			
 			else 
 			{
-				response.sendRedirect("error.html");
+				response.sendRedirect("loginerror.html");
 
 			}
 		}

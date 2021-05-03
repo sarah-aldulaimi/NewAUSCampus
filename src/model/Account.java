@@ -9,11 +9,11 @@ public class Account
 	DataHandler data = new DataHandler();
 	boolean validLogin = false;
 	
-	public boolean validateUser(String user, String pwd) 
+	public boolean validateUser(String email, String pwd) 
 	{
 		try
 		{
-			return data.checkAccount(user, pwd);
+			return data.checkAccount(email, pwd);
 		}
 		catch (SQLException e) 
 		{
