@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
@@ -74,9 +76,12 @@
 
 	<div class="right-image-decor"></div>
 	<div class="right-img"
-		data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"></div>
-
-
+		data-scroll-reveal="enter right _move 30px over 0.6s after 0.4s"></div>
+		<%
+String name = request.getParameter("full_name");
+String email = request.getParameter("email");
+// String id = request.getAttribute("id").toString();
+%>
 	<!-- Profile Start -->
 	<div class="container">
 		<!-- <div class = "row"> -->
@@ -90,19 +95,19 @@
 								<div class="col-sm-3">
 									<h6 class="mb-0">Full Name</h6>
 								</div>
-								<div class="col-sm-9 text-secondary">Kenneth Valdez</div>
+								<div class="col-sm-9 text-secondary"><%out.println(name);%></div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Email</h6>
 								</div>
-								<div class="col-sm-9 text-secondary">fip@jukmuh.al</div>
+								<div class="col-sm-9 text-secondary"><%out.println(email);%></div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Phone</h6>
+									<h6 class="mb-0">ID</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">(239) 816-9029</div>
 							</div>
@@ -116,7 +121,7 @@
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Address</h6>
+									<h6 class="mb-0">Major</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">Bay Area, San
 									Francisco, CA</div>
