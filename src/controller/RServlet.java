@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dbAccess.DataHandler;
 import model.Account;
 
-/**
+/*
  * Servlet implementation class RServlet
  */
 @WebServlet("/RServlet")
@@ -26,7 +26,6 @@ public class RServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -34,7 +33,6 @@ public class RServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
