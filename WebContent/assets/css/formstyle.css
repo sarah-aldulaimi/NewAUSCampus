@@ -109,7 +109,7 @@ a.main-button {
 }
 
 a.main-button:hover {
-  background-color: #853124;
+  background-color: rgb(133, 49, 36);
 }
 
 button.main-button {
@@ -210,7 +210,8 @@ left: 50%
 }
 
 .box input[type="text"]:focus,
-.box input[type="password"]:focus {
+.box input[type="password"]:focus
+.box input[tyoe="tel"]:focus {
     width: 300px;
     border-color: #863d2f;
 }
@@ -245,25 +246,27 @@ input[type="submit"]:hover {
 
 .radio-toolbar label {
     display: inline-block;
-    background-color: #ddd;
+    background-color: rgb(194, 193, 195);
     padding: 10px 20px;
-    font-family: sans-serif, Arial;
     font-size: 16px;
-    border: 2px solid #444;
-    border-radius: 4px;
+    border: 2px solid rgb(194, 193, 195);
+     border-radius: 24px;
+     margin-right:10px;
+      color: white;
 }
 
 .radio-toolbar label:hover {
-  background-color: #dfd;
+  background-color: #853124;
+      border: 2px solid #853124;
 }
 
 .radio-toolbar input[type="radio"]:focus + label {
-    border: 2px dashed #444;
+    border: 2px dashed #853124;
 }
 
 .radio-toolbar input[type="radio"]:checked + label {
-    background-color: #bfb;
-    border-color: #4c4;
+    background-color: rgb(164, 62, 46);
+    border-color: rgb(164, 62, 46);
 }
 
 
