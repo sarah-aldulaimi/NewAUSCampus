@@ -34,7 +34,7 @@ a:hover {
 .inner {
   min-width: 850px;
 /*   margin: auto; */
-  padding-bottom: 48px;
+  padding-bottom: 30px;
 }
   .inner h3 {
     text-transform: uppercase;
@@ -52,9 +52,11 @@ a:hover {
   display: flex; }
   .form-group .form-wrapper {
     width: 50%; 
+    margin-right:15px;
     }
     .form-group .form-wrapper:first-child {
-      margin-right: 20px; }
+      margin-right: 15px;
+       }
 
 .form-wrapper {
   margin-bottom: 17px; }
@@ -193,7 +195,7 @@ left: 50%
 }
 .form-wrapper input[type="text"],
 .form-wrapper input[type="password"] {
- 	  color: rgb(164, 62, 46);
+ color: rgb(164, 62, 46);
   padding: 12px;
   width: 100%;
   border-radius:20px;
@@ -236,12 +238,14 @@ input[type="submit"]:hover {
 }
 .radio-toolbar {
   margin: 10px;
+  
 }
 
 .radio-toolbar input[type="radio"] {
   opacity: 0;
   position: fixed;
   width: 0;
+      text-align: center;
 }
 
 .radio-toolbar label {

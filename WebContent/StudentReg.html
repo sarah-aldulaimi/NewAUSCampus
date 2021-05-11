@@ -12,6 +12,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Register</title>
+
+
 <link rel="stylesheet" type="text/css"
 	href="assets/css/bootstrap.min.css">
 
@@ -23,26 +25,6 @@
 <link rel="stylesheet" href="assets/css/owl-carousel.css">
 <link rel=stylesheet href=assets/css/wavesheets.css>
 <link rel="stylesheet" href=assets/css/formstyle.css>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
-<script type="text/javascript">
- function registerform(){
-   var selectvalue = $('input[name=type]:checked', '#registerform').val();
-
-
-if(selectvalue == "Student"){
-window.open('StudentReg.html','_self');
-return true;
-}
-else if(selectvalue == "Staff"){
-window.open('StaffReg.html','_self');
-return true;
-}
-return false;
-};
-
-
-</script>
 </head>
 <body>
 
@@ -66,67 +48,73 @@ return false;
 				data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
 				<div class="wrapper" id="form-wrapper">
 					<div class="inner">
-						<form onSubmit ="return registerform()" id="registerform" method="post" action="RServlet">
-							<h3>Registration</h3>
-							<div class="form-group">
-								<div class="form-wrapper">
-									<label for="">First Name</label> <input type="text" id="fname"
-										name="fname" placeholder="First Name" required>
-								</div>
-								<div class="form-wrapper">
-									<label for="">Last Name</label> <input type="text" id="lname"
-										name="lname" placeholder="Last Name" required>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-wrapper">
-									<label for="">Email</label> <input type="text" id="email"
-										name="email" placeholder="Email"required>
-								</div>
-								<div class="form-wrapper">
-									<label for="">Phone Number</label> <input type="text"
-										id="phone" name="phone" placeholder="Phone number"required>
-								</div>
-							</div>
-<!-- 							<div class="form-group"> -->
-<!-- 								<div class="form-wrapper"> -->
-<!-- 									<label for="">Department</label> <input type="text" name="dept" -->
-<!-- 										placeholder="Department" required> -->
-<!-- 								</div> -->
-<!-- 								<div class="form-wrapper"> -->
-<!-- 									<label for="">Courses</label> <input type="text" name="type" -->
-<!-- 										placeholder="COE420,COE44,etc" required> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-							<div class="form-group">
-								<div class="form-wrapper">
-									<label for="">Password</label> <input type="password"
-										name="password" placeholder="password" required>
-								</div>
-								<div class="form-wrapper">
-									<label for="">Confirm Password</label> <input type="text"
-										name="type" placeholder="password" required>
-								</div>
-							</div>
+						<form id="register-form" method="post" action="RServlet">
+							<h3>Student Registration</h3>
 
 							<div class="form-group">
 								<div class="form-wrapper">
-									<div class="radio-toolbar">
-										<input type="radio" onclick="registerform();" id="Student" name="type" value="Student"
-											checked> <label for="Student">Student</label> 
-											<input type="radio" onclick="registerform();" id="Staff" name="type" value="Staff"> 
-											<label for="Staff">Staff</label>
-									</div>
+									<label for="">Course1</label> <input type="text" name="dept"
+										placeholder="Department" >
 								</div>
-										</div>
-									<div class="form-group">
 								<div class="form-wrapper">
-									<button type="submit" id="form-submit" name="submit" class="main-button"
-										style="float: right">Next</button>
+									<label for="">Section</label> <input type="text" name="type"
+										placeholder="COE420,COE44,etc" >
 								</div>
-							</div>
 	
+								<div class="form-wrapper">
+									<label for="">Course2</label> <input type="text" name="dept"
+										placeholder="Department" >
+								</div>
+								<div class="form-wrapper">
+									<label for="">Section</label> <input type="text" name="type"
+										placeholder="COE420,COE44,etc" >
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-wrapper">
+									<label for="">Course3</label> <input type="text" name="dept"
+										placeholder="Department" >
+								</div>
+								<div class="form-wrapper">
+									<label for="">Section</label> <input type="text" name="type"
+										placeholder="COE420,COE44,etc" >
+								</div>
+		
+								<div class="form-wrapper">
+									<label for="">Course4</label> <input type="text" name="dept"
+										placeholder="Department" >
+								</div>
+								<div class="form-wrapper">
+									<label for="">Section</label> <input type="text" name="type"
+										placeholder="COE420,COE44,etc" >
+								</div>
+						</div>
+													<div class="form-group">
+								<div class="form-wrapper">
+									<label for="">Course5</label> <input type="text" name="dept"
+										placeholder="Department" >
+								</div>
+								<div class="form-wrapper">
+									<label for="">Section</label> <input type="text" name="type"
+										placeholder="COE420,COE44,etc" >
+								</div>
+					
 
+								<div class="form-wrapper">
+									<label for="">Course6</label> <input type="text" name="dept"
+										placeholder="Department" >
+								</div>
+								<div class="form-wrapper">
+									<label for="">Section</label> <input type="text" name="type"
+										placeholder="COE420,COE44,etc" >
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-wrapper">
+									<button type="submit" id="form-submit" class="main-button"
+										style="float: right">Submit</button>
+								</div>
+									</div>
 						</form>
 					</div>
 				</div>
