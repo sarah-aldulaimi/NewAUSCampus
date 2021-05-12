@@ -17,7 +17,7 @@ public class DataHandler
 	
 	public boolean checkAccount(String email, String pass) throws SQLException 
 	{
-		String query = "SELECT email, pass_word FROM users where email = '" + email + "' and pass_word = '" + pass + "'";
+		String query = "SELECT email, password FROM users where email = '" + email + "' and password = '" + pass + "'";
 		System.out.println(query);
 		
 		rs = dbCon.executeStatement(query);
@@ -45,12 +45,22 @@ public class DataHandler
 	
 	public int checkAccountType(String email, String pass) throws SQLException
 	{
-		String query = "select user_type from users where email = '" + email + "' and pass_word = '" + pass + "'";
+		String query = "select type from users where email = '" + email + "' and password = '" + pass + "'";
 		rs = dbCon.executeStatement(query);
 		rs.beforeFirst();
 		rs.next();
 		
-		return rs.getInt("user_type");
+		return rs.getInt("type");
+	}
+	
+	public int getAccountID(String email, String pass) throws SQLException
+	{
+		String query = "select user_ID from users where email = '" + email + "' and password = '" + pass + "'";
+		rs = dbCon.executeStatement(query);
+		rs.beforeFirst();
+		rs.next();
+		
+		return rs.getInt("user_ID");
 	}
 	
 	public ArrayList<String> getAccounts() throws SQLException {

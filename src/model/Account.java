@@ -22,6 +22,19 @@ public class Account
 		}
 	}
 	
+	public int getAccountID(String email, String pwd)
+	{
+		try
+		{
+			return data.getAccountID(email, pwd);
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+			return -1;
+		}
+	}
+	
 	public int getAccountType(String user, String pwd)
 	{
 		try

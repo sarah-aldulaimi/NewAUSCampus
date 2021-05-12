@@ -1,16 +1,17 @@
 CREATE TABLE users (
-	AUS_ID integer,
-    user_name varchar(20) NOT NULL,
-    pass_word varchar(20) NOT NULL,
-    full_name varchar(50) NOT NULL,
-    vacc_status bool,
-    user_type int,
-   constraint AUS_ID_PK primary key (AUS_ID)
-   
+	user_ID int auto_increment,
+    fname varchar(20) NOT NULL,
+    lname varchar(20) NOT NULL,
+    email varchar(50) NOT NULL,
+    phone varchar(20) NOT NULL,
+    dept varchar(10) NOT NULL,
+    password varchar(50) NOT NULL,
+    type int NOT NULL,
+   constraint user_ID primary key (user_ID)
 );
 
-INSERT INTO USERS VALUES(77846,"b00077846","123","Adham Abdelnaby",True,0);
-INSERT INTO USERS VALUES(78593,"b00078593","123","Khalid Alshafey",True,1);
+INSERT INTO USERS (fname, lname, email, phone, dept, password, type) VALUES ('Adham', 'Abdelnaby', 'b00077846@aus.edu', '0507654321', 'CMP', 'adhampwd', 1);
+INSERT INTO USERS (fname, lname, email, phone, dept, password, type) VALUES ('Khalid', 'Elshafey', 'b00078593@aus.edu', '0501234567', 'CMP', 'khalidpwd', 0);
 
 CREATE TABLE rooms (
 room_ID varchar(10),
