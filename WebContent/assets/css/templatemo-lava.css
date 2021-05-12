@@ -573,6 +573,7 @@ header
     width: 100%;
     margin-top: 0px !important;
     display: none;
+    
     -webkit-transition: all 0s ease 0s;
     -moz-transition: all 0s ease 0s;
     -o-transition: all 0s ease 0s;
@@ -1188,4 +1189,16 @@ preloader
   100% {
     opacity: 0;
   }
+}
+
+
+.table{
+margin-top:500px;
+width: 100%; 
+border-radius: 48px;
+
+}
+
+thead {
+  height: 70px;
 }

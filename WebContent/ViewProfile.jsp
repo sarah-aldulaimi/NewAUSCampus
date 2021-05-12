@@ -77,11 +77,10 @@
 	<div class="right-image-decor"></div>
 	<div class="right-img"
 		data-scroll-reveal="enter right _move 30px over 0.6s after 0.4s"></div>
-		<%
-String fname = request.getParameter("fname");
-String email = request.getParameter("email");
-String phone = request.getParameter("phone");
-String dept = request.getParameter("dept");
+ <%String name = (String)request.getAttribute("name");
+String email = (String)request.getAttribute("email");
+String phone = (String)request.getAttribute("phone");
+String dept = (String)request.getAttribute("dept");
 // String id = request.getAttribute("id").toString();
 %>
 	<!-- Profile Start -->
@@ -97,7 +96,7 @@ String dept = request.getParameter("dept");
 								<div class="col-sm-3">
 									<h6 class="mb-0">Full Name</h6>
 								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(fname);%></div>
+								<div class="col-sm-9 text-secondary"><%out.println(name);%></div>
 							</div>
 							<hr>
 							<div class="row">
@@ -111,14 +110,14 @@ String dept = request.getParameter("dept");
 								<div class="col-sm-3">
 									<h6 class="mb-0">ID</h6>
 								</div>
-								<div class="col-sm-9 text-secondary">(239) 816-9029</div>
+								<div class="col-sm-9 text-secondary"><%out.println(email);%></div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Mobile</h6>
 								</div>
-								<div class="col-sm-9 text-secondary">(320) 380-4539</div>
+								<div class="col-sm-9 text-secondary"><%out.println(email);%></div>
 							</div>
 							<hr>
 							<div class="row">
