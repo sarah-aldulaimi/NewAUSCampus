@@ -66,7 +66,7 @@ return false;
 				data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
 				<div class="wrapper" id="form-wrapper">
 					<div class="inner">
-						<form onSubmit ="return registerform()" id="registerform" method="post" action="RServlet">
+						<form onSubmit ="return registerform()" id="registerform" method="post" action="RegistrationServlet">
 							<h3>Registration</h3>
 							<div class="form-group">
 								<div class="form-wrapper">
@@ -104,8 +104,8 @@ return false;
 										name="password" placeholder="password" required>
 								</div>
 								<div class="form-wrapper">
-									<label for="">Confirm Password</label> <input type="text"
-										name="type" placeholder="password" required>
+									<label for="">Confirm Password</label> <input type="password"
+										name="confirmpass" placeholder="password" required>
 								</div>
 							</div>
 

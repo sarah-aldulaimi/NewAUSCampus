@@ -54,17 +54,17 @@ public class RServlet extends HttpServlet {
 			System.out.println("NOT CHECKED");
 		}
 		
-		try
-		{
-			if(data.registerAccount(fname, lname, email, password, type))
-			{
-				response.sendRedirect("staffindex.jsp");
-			}
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
+//		try
+//		{
+//			if(data.registerAccount(fname, lname, email, password, type))
+//			{
+//				response.sendRedirect("staffindex.jsp");
+//			}
+//		}
+//		catch(SQLException e)
+//		{
+//			e.printStackTrace();
+//		}
 	}
 
 }

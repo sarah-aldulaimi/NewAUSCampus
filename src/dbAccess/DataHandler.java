@@ -27,16 +27,16 @@ public class DataHandler
 		return false;
 	}
 	
-	public boolean registerAccount(String fname, String lname, String email, String password, int type) throws SQLException
+	public boolean registerAccount(String fname, String lname, String email, String phone, String dept, String courses, String password, String type) throws SQLException
 	{
-		String query = "insert into users values ('" + fname + "', '" + lname + "', '" + email + "', '" + password + "', " + type + ")";
+		String query = "insert into users (fname, lname, email, phone, dept, password, type) values ('" + fname + "', '" + lname + "', '" + email + "', '" + phone + "', '" + dept + "', '" + password + "', " + type + ")";
 		System.out.println(query);
 
 		int result = dbCon.executeUpdate(query);
 
 		if (result == 1) 
 		{
-			System.out.println("USER ADDED SUCCESSFULLY");
+			System.out.println("USER ADDED SUCCESS");
 			return true;
 		}
 
