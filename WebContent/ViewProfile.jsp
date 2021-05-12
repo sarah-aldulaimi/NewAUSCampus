@@ -61,7 +61,7 @@
 									class="fa fa-user-circle"></i></a>
 								<ul>
 									<li><a href="ViewProfile.html">View Profile</a></li>
-									<li><a href="">Sign out</a></li>
+									<li><a href="index.html">Sign out</a></li>
 								</ul></li>
 						</ul>
 						<a class='menu-trigger'> <span>Menu</span>
@@ -78,8 +78,10 @@
 	<div class="right-img"
 		data-scroll-reveal="enter right _move 30px over 0.6s after 0.4s"></div>
 		<%
-String name = request.getParameter("full_name");
+String fname = request.getParameter("fname");
 String email = request.getParameter("email");
+String phone = request.getParameter("phone");
+String dept = request.getParameter("dept");
 // String id = request.getAttribute("id").toString();
 %>
 	<!-- Profile Start -->
@@ -95,7 +97,7 @@ String email = request.getParameter("email");
 								<div class="col-sm-3">
 									<h6 class="mb-0">Full Name</h6>
 								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(name);%></div>
+								<div class="col-sm-9 text-secondary"><%out.println(fname);%></div>
 							</div>
 							<hr>
 							<div class="row">
@@ -121,10 +123,9 @@ String email = request.getParameter("email");
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Major</h6>
+									<h6 class="mb-0">Department</h6>
 								</div>
-								<div class="col-sm-9 text-secondary">Bay Area, San
-									Francisco, CA</div>
+								<div class="col-sm-9 text-secondary"><%out.println(dept);%></div>
 							</div>
 						</div>
 					</div>

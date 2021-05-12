@@ -54,7 +54,7 @@
                                 <ul>
                                     <li><a href="ViewProfile.jsp" >View Profile</a></li>
                              
-                                    <li><a href="Login.html">Sign out</a></li>
+                                    <li><a href="index.html">Sign out</a></li>
   
                                 </ul>
                             </li>
@@ -73,7 +73,7 @@
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
     
-   <%  String name = request.getParameter("full_name");%>
+   <%String name = (String)request.getAttribute("name");%>
     
     
         <!-- ***** Header Text Start ***** -->

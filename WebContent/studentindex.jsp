@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +59,7 @@
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
                                 <ul>
-                                    <li><a href="ViewProfile.jsp" >View Profile</a></li>
+                                    <li><a href="ViewProfile.html" >View Profile</a></li>
                              
                                     <li><a href="index.html">Sign out</a></li>
   
@@ -75,6 +77,8 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
+    
+   <%String name = "Jeremy";%>
 
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
@@ -85,7 +89,7 @@
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>Welcome <em>AUS </em>Students</h1>
+                        <h1>Welcome <em><%out.println(name); %></em></h1>
                         <p>Due to the recent pandemic access to campus has been extremely limited. Through this service we hope to better provide for students</p> 
                         <a href="#book" class="main-button-slider">Book a class now</a>
                     </div>
@@ -99,15 +103,14 @@
     <!-- ***** Features Big Item Start ***** -->
     <section class="section" id="book">
         <div class="container">
-            <div class="row">
+            <div class="row">       
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>01</h2>
-                            <img src="assets/images/lab.png" alt="">
+                            <img src="assets/images/lab.png" alt="">             
                             <h4>Book a Lab</h4>
-                            <p></p>
                             <a href="BookLab.html" class="main-button">Book a Lab</a>
                         </div>
                     </div>
@@ -118,9 +121,9 @@
                         <div class="features-icon">
                             <h2>02</h2>
                             <img src="assets/images/test.png" alt="">
-                            <h4>Book an Exam Room</h4>
+                            <h4>View Schedule</h4>
                             <p></p>
-                            <a href="BookExam.html" class="main-button">Book a Room</a>
+                            <button class="main-button" type ="submit">Display schedule</button>
                         </div>
                     </div>
                 </div>
@@ -130,7 +133,7 @@
                         <div class="features-icon">
                             <h2>03</h2>
                             <img src="assets/images/calender.png" alt="">
-                            <h4>View Schedule</h4>
+                            <h4>View Proctor Schedule</h4>
                             <p></p>
                             <a href="Book.html" class="main-button">
                                 View Now
@@ -138,6 +141,7 @@
                         </div>
                     </div>
                 </div>
+     
             </div>
         </div>
     </section>
@@ -166,10 +170,10 @@
                  
                             <div class="faq-content">
 
-                                <h4>How recent should my PCR test be?</h4>
-                                <p>“Nullam hendrerit, elit a semper pharetra, ipsum nibh tristique tortor, in tempus
-                                    urna elit in mauris.”</p>
-                     
+                                <h4>Jonathan Smart</h4>
+                                <p>âNullam hendrerit, elit a semper pharetra, ipsum nibh tristique tortor, in tempus
+                                    urna elit in mauris.â</p>
+                                <span>Besta CTO</span>
                             </div>
                         </div>
                         <div class="item service-item">
@@ -177,9 +181,9 @@
                             <div class="faq-content">
       
                                 <h4>Martino Tino</h4>
-                                <p>“Morbi non mi luctus felis molestie scelerisque. In ac libero viverra, placerat est
-                                    interdum, rhoncus leo.”</p>
-                        
+                                <p>âMorbi non mi luctus felis molestie scelerisque. In ac libero viverra, placerat est
+                                    interdum, rhoncus leo.â</p>
+                                <span>Web Analyst</span>
                             </div>
                         </div>
                         <div class="item service-item">
@@ -187,9 +191,9 @@
                             <div class="faq-content">
            
                                 <h4>George Tasa</h4>
-                                <p>“Fusce rutrum in dolor sit amet lobortis. Ut at vehicula justo. Donec quam dolor,
-                                    congue a fringilla sed, maximus et urna.”</p>
-                           
+                                <p>âFusce rutrum in dolor sit amet lobortis. Ut at vehicula justo. Donec quam dolor,
+                                    congue a fringilla sed, maximus et urna.â</p>
+                                <span>System Admin</span>
                             </div>
                         </div>
                         <div class="item service-item">
@@ -199,7 +203,7 @@
                                 <h4>Sir James</h4>
                                 <p>"Fusce rutrum in dolor sit amet lobortis. Ut at vehicula justo. Donec quam dolor,
                                     congue a fringilla sed, maximus et urna."</p>
-                           
+                                <span>New Villager</span>
                             </div>
                         </div>
                     </div>
