@@ -105,7 +105,7 @@
                             <img src="assets/images/lab.png" alt="">
                             <h4>Book a Lab</h4>
                             <p></p>
-                            <a href="BookLab.html" class="main-button">Book a Lab</a>
+                            <a href="BookLab.jsp" class="main-button">Book a Lab</a>
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                             <img src="assets/images/test.png" alt="">
                             <h4>Book an Exam Room</h4>
                             <p></p>
-                            <a href="BookExam.html" class="main-button">Book a Room</a>
+                            <a href="BookExam.jsp" class="main-button">Book a Room</a>
                         </div>
                     </div>
                 </div>
