@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dbAccess.DataHandler, java.sql.ResultSet" %>
+<%
+DataHandler data = new DataHandler();
+ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
+%>
 <!DOCTYPE html>
 <html>
 
@@ -96,35 +100,35 @@ String dept = (String)request.getAttribute("dept");
 								<div class="col-sm-3">
 									<h6 class="mb-0">Full Name</h6>
 								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(name);%></div>
+								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("fname") + " " + rs.getString("lname"));%></div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Email</h6>
 								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(email);%></div>
+								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("email"));%></div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
-									<h6 class="mb-0">ID</h6>
+									<h6 class="mb-0">UserID</h6>
 								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(email);%></div>
+								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("user_ID"));%></div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Mobile</h6>
 								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(email);%></div>
+								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("phone"));%></div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Department</h6>
 								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(dept);%></div>
+								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("dept"));%></div>
 							</div>
 						</div>
 					</div>

@@ -59,7 +59,7 @@
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
                                 <ul>
-                                    <li><a href="ViewProfile.html" >View Profile</a></li>
+                                    <li><a href="ViewProfile.jsp" >View Profile</a></li>
                              
                                     <li><a href="index.html">Sign out</a></li>
   

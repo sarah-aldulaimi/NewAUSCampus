@@ -63,6 +63,15 @@ public class DataHandler
 		return rs.getInt("user_ID");
 	}
 	
+	public ResultSet getAccountInformation(int userID) throws SQLException
+	{
+		String query = "select fname, lname, user_ID, email, phone, dept from users where user_ID = " + userID;
+		rs = dbCon.executeStatement(query);
+		rs.beforeFirst();
+		rs.next();
+		return rs;
+	}
+	
 	public boolean addReservation(String CRN, int userID, int timeID, String date, String roomID) throws SQLException
 	{
 		int result1 = 0, result2 = 0, result3 = 0, result4 = 0;
