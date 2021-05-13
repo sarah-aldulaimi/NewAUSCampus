@@ -63,6 +63,193 @@ public class DataHandler
 		return rs.getInt("user_ID");
 	}
 	
+	public boolean addReservation(String CRN, int userID, int timeID, String date, String roomID) throws SQLException
+	{
+		int result1 = 0, result2 = 0, result3 = 0, result4 = 0;
+		String query = "select reserv_count from active_reservations where room_ID = '" + roomID + "' AND reserv_date = '" + date + "' AND time_ID = " + timeID;
+		System.out.println(query);
+		rs = dbCon.executeStatement(query);
+		
+		if(rs.isBeforeFirst())
+		{
+			rs.next();
+			if(rs.getInt("reserv_count") == 15)
+			{
+				System.out.println("FULL CLASS AND TIME");
+			}
+			
+			else
+			{
+				query = "insert into reservations (course_code, user_ID, room_ID) values ('" + CRN + "', " + userID + ", '" + roomID + "')";
+				System.out.println(query);
+				result1 = dbCon.executeUpdate(query);
+				
+				query = "update active_reservations set reserv_count = reserv_count + 1 where room_ID = '" + roomID + "' AND reserv_date = '" + date + "' AND time_ID = " + timeID;
+				System.out.println(query);
+				result2 = dbCon.executeUpdate(query);
+			}
+		}
+		
+		else
+		{
+			query = "insert into reservations (course_code, user_ID, room_ID) values ('" + CRN + "', " + userID + ", '" + roomID + "')";
+			System.out.println(query);
+			result3 = dbCon.executeUpdate(query);
+			
+			query = "insert into active_reservations values ('" + roomID + "', '" + date + "', " + timeID + "," + 1 + ")";
+			System.out.println(query);
+			result4 = dbCon.executeUpdate(query);
+		}
+
+
+		if ((result1 == 1 && result2 == 1) || (result3 == 1 && result4 == 1)) 
+		{
+			System.out.println("RESERVATION ADDED SUCCESS!");
+			return true;
+		}
+
+		return false;
+	}
+	
+	public ArrayList<String> getAvailableCourseNames(int userID, int type) throws SQLException
+	{
+		ArrayList<String> coursenames = new ArrayList<String>();
+		
+		if(type == 0) //student
+		{
+			String query = "select course_name from avail_courses where CRN in (select CRN from stud_courses where stud_id = " + userID + ")"; //only show courses student is taking
+			
+			rs = dbCon.executeStatement(query);
+			rs.beforeFirst();
+			
+			while(rs.next())
+			{
+				String course = rs.getString("course_name");
+				coursenames.add(course);
+			}
+		}
+		
+		else if(type == 1) //professor
+		{
+			String query = "select course_name from avail_courses where instructor_ID = " + userID; //only show courses professor is giving
+			
+			rs = dbCon.executeStatement(query);
+			rs.beforeFirst();
+			
+			while(rs.next())
+			{
+				String course = rs.getString("course_name");
+				coursenames.add(course);
+			}
+		}
+		
+		return coursenames;
+	}
+	
+	public ArrayList<String> getAvailableCourseCRNs(int userID, int type) throws SQLException
+	{
+		ArrayList<String> CRNs = new ArrayList<String>();
+		
+		if(type == 0) //student
+		{
+			String query = "select CRN from stud_courses where stud_id = " + userID; //only show courses student is taking
+			
+			rs = dbCon.executeStatement(query);
+			rs.beforeFirst();
+			
+			while(rs.next())
+			{
+				String course = rs.getString("CRN");
+				CRNs.add(course);
+			}
+		}
+		
+		else if(type == 1) //professor
+		{
+			String query = "select CRN from avail_courses where instructor_ID = " + userID; //only show courses professor is giving
+			
+			rs = dbCon.executeStatement(query);
+			rs.beforeFirst();
+			
+			while(rs.next())
+			{
+				String course = rs.getString("CRN");
+				CRNs.add(course);
+			}
+		}
+		
+		return CRNs;
+	}
+	
+	public ArrayList<String> getAvailableLabs() throws SQLException
+	{
+		String query = "select room_ID from rooms where room_type = 0 and available = true"; //room_type 0 = lab
+		ArrayList<String> labs = new ArrayList<String>();
+		
+		rs = dbCon.executeStatement(query);
+		rs.beforeFirst();
+		
+		while(rs.next())
+		{
+			String course = rs.getString("room_ID");
+			labs.add(course);
+		}
+		
+		return labs;
+	}
+	
+	public ArrayList<String> getAvailableRooms() throws SQLException
+	{
+		String query = "select room_ID from rooms where room_type = 1 and available = true"; //room_type 1 = room
+		ArrayList<String> rooms = new ArrayList<String>();
+		
+		rs = dbCon.executeStatement(query);
+		rs.beforeFirst();
+		
+		while(rs.next())
+		{
+			String course = rs.getString("room_ID");
+			rooms.add(course);
+		}
+		
+		return rooms;
+	}
+	
+	public ArrayList<String> getAvailableTimings() throws SQLException
+	{
+		String query = "SELECT TIME_FORMAT(start_time, '%H:%i') as start_time, TIME_FORMAT(end_time, '%H:%i') as end_time from avail_timings"; //don't forget check on capacity
+		ArrayList<String> timings = new ArrayList<String>();
+		
+		rs = dbCon.executeStatement(query);
+		rs.beforeFirst();
+		
+		while(rs.next())
+		{
+			String start = rs.getString("start_time");
+			String end = rs.getString("end_time");
+			timings.add(start + " - " + end);
+		}
+		
+		return timings;
+	}
+	
+	public ArrayList<String> getAvailableTimingIDs() throws SQLException
+	{
+		String query = "select time_id from avail_timings";
+		ArrayList<String> time_ids = new ArrayList<String>();
+		
+		rs = dbCon.executeStatement(query);
+		rs.beforeFirst();
+		
+		while(rs.next())
+		{
+			String course = rs.getString("time_id");
+			time_ids.add(course);
+		}
+		
+		return time_ids;
+	}
+	
 	public ArrayList<String> getAccounts() throws SQLException {
 		// List of usernames and passwords in the database
 		ArrayList<String> users = new ArrayList<String>();

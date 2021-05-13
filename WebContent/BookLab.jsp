@@ -1,3 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dbAccess.DataHandler, java.util.ArrayList" %>
+<% 
+System.out.println(session.getAttribute("id"));
+System.out.println(session.getAttribute("type"));
+DataHandler data = new DataHandler(); 
+ArrayList<String> course_names = data.getAvailableCourseNames((int)session.getAttribute("id"), (int)session.getAttribute("type"));
+ArrayList<String> course_CRNs = data.getAvailableCourseCRNs((int)session.getAttribute("id"), (int)session.getAttribute("type"));
+ArrayList<String> labs = data.getAvailableLabs();
+ArrayList<String> timings = data.getAvailableTimings();
+ArrayList<String> timing_IDs = data.getAvailableTimingIDs();
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,48 +110,66 @@
 						data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
 					<div class="wrapper" id="form-wrapper">
 						<div class="inner">
-							<form id="booking-form" action="">
-								<h3>Exam Form</h3>
+							<form id="booking-form" method="post" action="ReserveServlet">
+								<h3>Lab Form</h3>
 								<div class="form-group">
 									<div class="form-wrapper">
 										<label for="">Course</label>
 										<div class="box">
-											<select>
-												<option>Option 1</option>
-												<option>Option 2</option>
-												<option>Option 3</option>
-												<option>Option 4</option>
-												<option>Option 5</option>
+											<select name = "course">
+											<%
+											for(int i=0;i<course_names.size();i++)
+											{
+												String cname = course_CRNs.get(i) + " - " + course_names.get(i);
+												System.out.println(cname);
+												System.out.println(session.getAttribute("id"));
+											%>
+											<option value="<%=course_CRNs.get(i)%>"><%=cname%></option>
+											<% 
+											}
+											%>
 											</select>
 										</div>
 									</div>
 									<div class="form-wrapper">
 										<label for="">Room</label> 					
 										<div class="box">
-											<select>
-												<option>Option 1</option>
-												<option>Option 2</option>
-												<option>Option 3</option>
-												<option>Option 4</option>
-												<option>Option 5</option>
+											<select name = "room">
+											<%
+											for(int i=0;i<labs.size();i++)
+											{
+												System.out.println(labs.get(i));
+											%>
+											<option value="<%=labs.get(i)%>"><%=labs.get(i)%></option>
+											<% 
+											}
+											%>
 											</select>
 										</div>
 									</div>
 								</div>
 						<div class="form-wrapper">
 									<label for="">Date</label> 
-									<input type="date" id ="date"placeholder="dd-mm-yyyy" />
+									<input type="date" id ="date"placeholder="yyyy-mm-dd" />
 								</div>
 									<div class="form-group">
 	
 								<div class="form-wrapper">
-									<label for="">Start Time</label>  
-								  <input type="time" id="startTime" placeholder="hh:mm" >
+									<label for="">Time</label>  
+									<div class="box">
+								  		<select name = "time">
+											<%
+											for(int i=0;i<timings.size();i++)
+											{
+												System.out.println(timings.get(i));
+											%>
+											<option value="<%=timing_IDs.get(i)%>"><%=timings.get(i)%></option>
+											<% 
+											}
+											%>
+										</select>
+										</div>
 								</div>		
-									<div class="form-wrapper">
-									<label for="">End Time</label>  
-								  <input type="time" id="endTime" placeholder="hh:mm">
-								</div>				
 </div>
 								<div class="checkbox">
 									<label> <input type="checkbox"> I accept the
