@@ -35,20 +35,20 @@ public class LoginServlet extends HttpServlet
 		if(model.validateUser(email, password)) 
 		{
 			//check type, then redirect appropriately
-			//HttpSession session = request.getSession();
-			request.setAttribute("id", model.getAccountID(email, password));
+			HttpSession session = request.getSession();
+			session.setAttribute("id", model.getAccountID(email, password));
 			// todo: replace Sarah with actual account name
 			request.setAttribute("name", "Sarah");
 			RequestDispatcher req = null;
 			if(model.getAccountType(email, password) == 0)
 			{
-				//request.setAttribute("type", 0);
+				session.setAttribute("type", 0);
 				req = request.getRequestDispatcher("studentindex.jsp");
 			
 			}
 			else if(model.getAccountType(email, password) == 1)
 			{
-				//request.setAttribute("type", 1);
+				session.setAttribute("type", 1);
 				req = request.getRequestDispatcher("staffindex.jsp");
 				
 			}
