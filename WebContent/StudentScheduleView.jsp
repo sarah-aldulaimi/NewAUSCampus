@@ -76,12 +76,12 @@
     </header>
     <!-- ***** Header Area End ***** -->
 <div class ="table">
-	<h2>
-		<b>Display a Session</b>
-	</h2>
 	<table id="myTable" class="table" data-page-length="25"
 		data-order="[[ 1, &quot;asc&quot; ]]">
+
 		<thead>
+					<h2>Display a Session
+	</h2>
 			<tr style="background-color: rgb(164, 62, 46)">
 				<th>Booking ID</th>
 				<th>Course Code</th>

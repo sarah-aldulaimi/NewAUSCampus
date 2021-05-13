@@ -1193,10 +1193,11 @@ preloader
 
 
 .table{
-margin-top:500px;
-width: 100%; 
-border-radius: 48px;
 
+width: 100%; 
+/* margin-top:100px; */
+/* margin-left: 50px; */
+/* margin-right: 50px; */
 }
 
 thead {

@@ -122,8 +122,9 @@
                             <h2>02</h2>
                             <img src="assets/images/test.png" alt="">
                             <h4>View Schedule</h4>
-                            <p></p>
+                       <form  method="Get" action='ScheduleServlet'>
                             <button class="main-button" type ="submit">Display schedule</button>
+                        </form>
                         </div>
                     </div>
                 </div>
