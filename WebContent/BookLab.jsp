@@ -150,7 +150,7 @@ ArrayList<String> timing_IDs = data.getAvailableTimingIDs();
 								</div>
 						<div class="form-wrapper">
 									<label for="">Date</label> 
-									<input type="date" id ="date"placeholder="yyyy-mm-dd" />
+									<input type="date" id ="date" name="date" placeholder="yyyy-mm-dd" />
 								</div>
 									<div class="form-group">
 	
