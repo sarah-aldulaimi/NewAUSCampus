@@ -7,6 +7,7 @@ CREATE TABLE users (
     dept varchar(10) NOT NULL,
     password varchar(50) NOT NULL,
     type int NOT NULL,
+    status bool DEFAULT False NOT NULL,
    constraint user_ID primary key (user_ID)
 );
 
@@ -82,3 +83,9 @@ constraint time_id_PK primary key (time_ID)
 
 insert into avail_timings values (1, '16:00', '17:00');
 insert into avail_timings values (2, '9:00', '10:00');
+
+CREATE TABLE user_proof(
+  pic_ID INT NOT NULL auto_increment,
+  user_ID INT NOT NULL,
+  photo MEDIUMBLOB NOT NULL,
+  PRIMARY KEY (pic_ID));
