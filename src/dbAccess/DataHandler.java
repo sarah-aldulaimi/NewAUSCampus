@@ -27,20 +27,43 @@ public class DataHandler
 		return false;
 	}
 	
-	public boolean registerAccount(String fname, String lname, String email, String phone, String dept, String courses, String password, String type) throws SQLException
+	public void registerProfessorAccount(String fname, String lname, String email, String phone, String dept, String[] CRNS, String[] course_names, String password, int type) throws SQLException
 	{
 		String query = "insert into users (fname, lname, email, phone, dept, password, type) values ('" + fname + "', '" + lname + "', '" + email + "', '" + phone + "', '" + dept + "', '" + password + "', " + type + ")";
 		System.out.println(query);
 
 		int result = dbCon.executeUpdate(query);
-
-		if (result == 1) 
+		
+		int user_ID = this.getAccountID(email, password);
+		
+		for(int i = 0; i < CRNS.length; i++)
 		{
-			System.out.println("USER ADDED SUCCESS");
-			return true;
+			if(CRNS[i].isEmpty() || course_names[i].isEmpty())
+				continue;
+			
+			query = "insert into avail_courses values (" + Integer.parseInt(CRNS[i]) + ", '" + course_names[i] + "', " + user_ID + ")";
+			int res = dbCon.executeUpdate(query);
 		}
+	}
+	
+	public void registerStudentAccount(String fname, String lname, String email, String phone, String dept, String[] CRNS, String password, int type) throws SQLException
+	{
+		String query = "insert into users (fname, lname, email, phone, dept, password, type) values ('" + fname + "', '" + lname + "', '" + email + "', '" + phone + "', '" + dept + "', '" + password + "', " + type + ")";
+		System.out.println(query);
 
-		return false;
+		int result = dbCon.executeUpdate(query);
+		
+		int user_ID = this.getAccountID(email, password);
+		
+		for(int i = 0; i < CRNS.length; i++)
+		{
+			if(CRNS[i].isEmpty())
+				continue;
+			
+			query = "insert into stud_courses values (" + user_ID + ", " + Integer.parseInt(CRNS[i]) + ")";
+			System.out.println(query);
+			int res = dbCon.executeUpdate(query);
+		}
 	}
 	
 	public int checkAccountType(String email, String pass) throws SQLException
