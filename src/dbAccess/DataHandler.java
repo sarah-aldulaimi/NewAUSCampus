@@ -1,5 +1,6 @@
 package dbAccess;
 
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -86,9 +87,51 @@ public class DataHandler
 		return rs.getInt("user_ID");
 	}
 	
+	public void insertProof(int user_ID, InputStream inputstream) throws SQLException
+	{
+		String query = "insert into user_proof (user_ID, photo) values (?, ?)";
+		int res = dbCon.executePrepared(query, user_ID, inputstream);
+	}
+	
+	public ResultSet getPhoto(int pic_ID) throws SQLException
+	{
+		String query = "SELECT photo FROM user_proof WHERE pic_ID=" + pic_ID + "";
+		rs = dbCon.executeStatement(query);
+		rs.beforeFirst();
+		return rs;
+	}
+	
+	public ResultSet getProofs() throws SQLException
+	{
+		String query = "select * from user_proof";
+		rs = dbCon.executeStatement(query);
+		rs.beforeFirst();
+		return rs;
+	}
+	
+	public void approveProof(int pic_ID) throws SQLException
+	{
+		String query = "select user_ID from user_proof where pic_ID = " + pic_ID;
+		rs = dbCon.executeStatement(query);
+		
+		rs.next();
+		int user_ID = rs.getInt("user_ID");
+		query = "update users set status = true where user_ID = " + user_ID;
+		int result = dbCon.executeUpdate(query);
+		
+		query = "delete from user_proof where user_ID = " + user_ID;
+		result = dbCon.executeUpdate(query);
+	}
+	
+	public void denyProof(int pic_ID) throws SQLException
+	{
+		String query = "delete from user_proof where pic_ID = " + pic_ID;
+		int result = dbCon.executeUpdate(query);
+	}
+	
 	public ResultSet getAccountInformation(int userID) throws SQLException
 	{
-		String query = "select fname, lname, user_ID, email, phone, dept from users where user_ID = " + userID;
+		String query = "select fname, lname, user_ID, email, phone, dept, status from users where user_ID = " + userID;
 		rs = dbCon.executeStatement(query);
 		rs.beforeFirst();
 		rs.next();

@@ -1,5 +1,6 @@
 package dbAccess;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -66,9 +67,11 @@ public class DBConnection
 		return result;
 	}
 
-	public int executePrepared(String strSQL) throws SQLException 
+	public int executePrepared(String strSQL, int user_ID, InputStream photo) throws SQLException //only used for upload photo
 	{
 		prepStatement = con.prepareStatement(strSQL);
+		prepStatement.setInt(1, user_ID);
+		prepStatement.setBlob(2, photo);
 		return prepStatement.executeUpdate();
 	}
 }

@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="dbAccess.DataHandler, java.sql.ResultSet" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="dbAccess.DataHandler, java.sql.ResultSet, java.util.ArrayList" %>
 <%
-System.out.println(session.getAttribute("id"));
-DataHandler data = (DataHandler)session.getAttribute("data");
-ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
+DataHandler data = (DataHandler) session.getAttribute("data");
+ResultSet rs = data.getProofs();
 %>
 <!DOCTYPE html>
 <html>
@@ -91,88 +90,24 @@ ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
 				<div class="col-md-8">
 					<div class="card mb-3">
 						<div class="card-body">
-							<div class="row">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Full Name</h6>
-								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("fname") + " " + rs.getString("lname"));%></div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Email</h6>
-								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("email"));%></div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-sm-3">
-									<h6 class="mb-0">userID</h6>
-								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("user_ID"));%></div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Mobile</h6>
-								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("phone"));%></div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Department</h6>
-								</div>
-								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("dept"));%></div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Status</h6>
-								</div>
-								<div class="col-sm-9 text-secondary"><%
-								if(rs.getBoolean("status")) out.println("Approved");
-								else out.println("Not Approved");
-								%></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Covid documents -->
-			<div class="row gutters-sm">
-				<div class="col-md-8">
-					<div class="card mb-3">
-						<div class="card-body">
-						<form id="upload-form" method="post" action="UploadServlet" enctype="multipart/form-data">
-							<div class="row">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Vaccine Card</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="file" id="Vfile" name="Vfile">
-								</div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-sm-3">
-									<h6 class="mb-0">PCR Test</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="file" id="PCRfile" name="PCRfile">
-								</div>
-							</div>
-							<hr>
-							<button type="submit" id="form-submit" class="main-button" style="float: right;">Submit</button>
-							</form>
-							<%
-							String error_msg=(String)request.getAttribute("error");  
-							if(error_msg!=null)
-							out.println("<font color=red size=4px>"+error_msg+"</font>");
-							String success_msg=(String)request.getAttribute("success");  
-							if(success_msg!=null)
-							out.println("<font color=green size=4px>"+success_msg+"</font>");
+							<% 
+								while(rs.next())
+								{ 
+									ResultSet rs2 = data.getAccountInformation(rs.getInt("user_ID"));
+									String id = rs.getString("user_ID");
+									String pid = rs.getString("pic_ID");
+									String name = rs2.getString("fname") + rs2.getString("lname");
+									String email = rs2.getString("email");
+									%>
+									<form id="picture-select" method="post" action="ApproveDenyProofServlet">
+									<input type="checkbox" name="checkedPics" value=<%=pid%>>
+									<label for="picture"><%=pid %><%=name %><img width="200" height="180" src="DisplayImage?pic_ID=<%=pid%>"></label>
+									<% 
+								}
 							%>
+						<button type="submit" id="form-submit" name="approve"class="main-button" style="float: right;">Approve</button>
+						<button type="submit" id="form-submit" name="deny" class="main-button" style="float: right;">Deny</button>
+						</form>
 						</div>
 					</div>
 				</div>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dbAccess.DataHandler;
 import model.Account;
 
 @WebServlet("/LoginServlet")
@@ -37,6 +38,7 @@ public class LoginServlet extends HttpServlet
 			//check type, then redirect appropriately
 			HttpSession session = request.getSession();
 			session.setAttribute("id", model.getAccountID(email, password));
+			session.setAttribute("data", new DataHandler());
 			// todo: replace Sarah with actual account name
 			request.setAttribute("name", "Sarah");
 			RequestDispatcher req = null;
