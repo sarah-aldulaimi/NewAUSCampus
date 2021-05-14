@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="dbAccess.DataHandler, java.sql.ResultSet" %>
 <%
-DataHandler data = new DataHandler();
+System.out.println(session.getAttribute("id"));
+DataHandler data = (DataHandler)session.getAttribute("data");
 ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
 %>
 <!DOCTYPE html>
@@ -81,12 +82,6 @@ ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
 	<div class="right-image-decor"></div>
 	<div class="right-img"
 		data-scroll-reveal="enter right _move 30px over 0.6s after 0.4s"></div>
- <%String name = (String)request.getAttribute("name");
-String email = (String)request.getAttribute("email");
-String phone = (String)request.getAttribute("phone");
-String dept = (String)request.getAttribute("dept");
-// String id = request.getAttribute("id").toString();
-%>
 	<!-- Profile Start -->
 	<div class="container">
 		<!-- <div class = "row"> -->
@@ -112,7 +107,7 @@ String dept = (String)request.getAttribute("dept");
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
-									<h6 class="mb-0">UserID</h6>
+									<h6 class="mb-0">userID</h6>
 								</div>
 								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("user_ID"));%></div>
 							</div>
@@ -129,6 +124,16 @@ String dept = (String)request.getAttribute("dept");
 									<h6 class="mb-0">Department</h6>
 								</div>
 								<div class="col-sm-9 text-secondary"><%out.println(rs.getString("dept"));%></div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Status</h6>
+								</div>
+								<div class="col-sm-9 text-secondary"><%
+								if(rs.getBoolean("status")) out.println("Approved");
+								else out.println("Not Approved");
+								%></div>
 							</div>
 						</div>
 					</div>
