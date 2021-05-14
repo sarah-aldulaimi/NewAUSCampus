@@ -53,12 +53,12 @@ public class RegistrationServletStep extends HttpServlet
 		{
 			if(type.equals("Student"))
 			{
-				RequestDispatcher req = request.getRequestDispatcher("StudentReg.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("StudentReg.html");
 				req.include(request, response);
 			}
 			else if(type.equals("Staff"))
 			{
-				RequestDispatcher req = request.getRequestDispatcher("StaffReg.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("StaffReg.html");
 				req.include(request, response);
 			}
 		}
