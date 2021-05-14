@@ -139,6 +139,7 @@ String dept = (String)request.getAttribute("dept");
 				<div class="col-md-8">
 					<div class="card mb-3">
 						<div class="card-body">
+						<form id="upload-form" method="post" action="UploadServlet" enctype="multipart/form-data">
 							<div class="row">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Vaccine Card</h6>
@@ -150,13 +151,6 @@ String dept = (String)request.getAttribute("dept");
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Date of Dose</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">Date</div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-sm-3">
 									<h6 class="mb-0">PCR Test</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
@@ -164,15 +158,16 @@ String dept = (String)request.getAttribute("dept");
 								</div>
 							</div>
 							<hr>
-							<div class="row">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Date of Test</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">Date</div>
-							</div>
-							<hr>
-							<button type="submit" id="form-submit" class="main-button"
-								style="float: right;">Submit</button>
+							<button type="submit" id="form-submit" class="main-button" style="float: right;">Submit</button>
+							</form>
+							<%
+							String error_msg=(String)request.getAttribute("error");  
+							if(error_msg!=null)
+							out.println("<font color=red size=4px>"+error_msg+"</font>");
+							String success_msg=(String)request.getAttribute("success");  
+							if(success_msg!=null)
+							out.println("<font color=green size=4px>"+success_msg+"</font>");
+							%>
 						</div>
 					</div>
 				</div>
