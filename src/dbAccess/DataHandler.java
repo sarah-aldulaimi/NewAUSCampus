@@ -131,7 +131,7 @@ public class DataHandler
 	
 	public ResultSet getAccountInformation(int userID) throws SQLException
 	{
-		String query = "select fname, lname, user_ID, email, phone, dept from users where user_ID = " + userID;
+		String query = "select fname, lname, user_ID, email, phone, dept, status from users where user_ID = " + userID;
 		rs = dbCon.executeStatement(query);
 		rs.beforeFirst();
 		rs.next();
