@@ -46,13 +46,16 @@ public class LoginServlet extends HttpServlet
 			{
 				session.setAttribute("type", 0);
 				req = request.getRequestDispatcher("studentindex.jsp");
-			
 			}
 			else if(model.getAccountType(email, password) == 1)
 			{
 				session.setAttribute("type", 1);
 				req = request.getRequestDispatcher("staffindex.jsp");
-				
+			}
+			else if(model.getAccountType(email, password) == 2)
+			{
+				session.setAttribute("type", 2);
+				req = request.getRequestDispatcher("adminindex.html");
 			}
 			req.include(request, response);
 		} 

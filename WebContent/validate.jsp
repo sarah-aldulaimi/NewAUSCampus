@@ -96,17 +96,22 @@ ResultSet rs = data.getProofs();
 									ResultSet rs2 = data.getAccountInformation(rs.getInt("user_ID"));
 									String id = rs.getString("user_ID");
 									String pid = rs.getString("pic_ID");
-									String name = rs2.getString("fname") + rs2.getString("lname");
+									String name = rs2.getString("fname") + " " + rs2.getString("lname");
 									String email = rs2.getString("email");
 									%>
 									<form id="picture-select" method="post" action="ApproveDenyProofServlet">
-									<input type="checkbox" name="checkedPics" value=<%=pid%>>
-									<label for="picture"><%=pid %><%=name %><img width="200" height="180" src="DisplayImage?pic_ID=<%=pid%>"></label>
+									<label for="picture"><%=id%> <%=name%> <br><%=email%> <br>
+									<input type="checkbox" name="checkedPics" value=<%=pid%>> <br>
+									<a href="DisplayImage?pic_ID=<%=pid%>" target="new">
+									<img width="400" height="300" src="DisplayImage?pic_ID=<%=pid%>">
+									</a>
+									</label>
 									<% 
 								}
 							%>
-						<button type="submit" id="form-submit" name="approve"class="main-button" style="float: right;">Approve</button>
+						<hr>
 						<button type="submit" id="form-submit" name="deny" class="main-button" style="float: right;">Deny</button>
+						<button type="submit" id="form-submit" name="approve"class="main-button" style="float: right;">Approve</button>
 						</form>
 						</div>
 					</div>
