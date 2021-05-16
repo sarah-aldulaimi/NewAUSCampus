@@ -47,35 +47,41 @@ ResultSet rs = data.getProofs();
 
 
 	<!-- ***** Header Area Start ***** -->
-	<header class="header-area header-sticky">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<nav class="main-nav">
-						<!-- ***** Logo Start ***** -->
-						<a href="index.html" class="logo"> AUS </a>
-						<!-- ***** Logo End ***** -->
-						<!-- ***** Menu Start ***** -->
-						<ul class="nav">
-							<li><a href="staffindex.html">Home</a></li>
-							<li><a href="staffindex.html#book">Book</a></li>
-							<li><a href="staffindex.html#faq">FAQ</a></li>
-							<li><a href="staffindex.html#contact-us">Contact Us</a></li>
-							<li class="submenu"><a href="javascript:;"><i
-									class="fa fa-user-circle"></i></a>
-								<ul>
-									<li><a href="ViewProfile.html">View Profile</a></li>
-									<li><a href="index.html">Sign out</a></li>
-								</ul></li>
+	  <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <div class="logo">
+                           AUS
+                        </div>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="adminindex.jsp">Home</a></li>
+                            <li><a href="adminindex.jsp#book">Manage</a></li>
+                 
+								<li class="submenu">
+                                <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
+                                <ul>
+                                    <li><a href="ViewProfile.jsp">View Profile</a></li>
+         
+                                    <li><a href="index.html" >Sign out</a></li>
+  
+                                </ul>
+                            </li>
 						</ul>
-						<a class='menu-trigger'> <span>Menu</span>
-						</a>
-						<!-- ***** Menu End ***** -->
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+        	
+    </header>
 	<!-- ***** Header Area End ***** -->
 
 	<div class="right-image-decor"></div>

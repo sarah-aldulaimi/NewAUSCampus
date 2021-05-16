@@ -55,7 +55,7 @@ int type = data.checkAccountType((int)session.getAttribute("id"));
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.html" class="logo"> AUS </a>
+						<div class="logo"> AUS </div>
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
