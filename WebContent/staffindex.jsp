@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="assets/css/templatemo-lava.css">
     <link rel="stylesheet" href="assets/css/owl-carousel.css">   
     <title>Home</title>
-    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  
 </head>
 
 <body>
@@ -143,7 +143,6 @@
         </div>
     </section>
     <!-- ***** Features Big Item End ***** -->
-
                
     <div class="right-image-decor"></div>
                    
@@ -249,12 +248,7 @@
                         </div>
                     </div>
                     <!-- ***** Contact Form End ***** -->
-                    <div class="right-content col-lg-6 col-md-12 col-sm-12">
-                        <h2>More About AUS Campus System</h2>
-                        <p>If you have any questions or enquires please don't hesitate to contact us!</p>
-       
-         
-                    </div>
+
                 </div>
             </div>
  

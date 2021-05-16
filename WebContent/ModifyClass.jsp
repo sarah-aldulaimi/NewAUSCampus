@@ -24,7 +24,7 @@ String L="Lab", R="Class";
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Book</title>
-
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  
 <link rel="stylesheet" type="text/css"
 	href="assets/css/bootstrap.min.css">
 
@@ -164,10 +164,12 @@ String L="Lab", R="Class";
 									
 								</div>
 								<button type="submit" id="form-submit" class="main-button">Submit</button>
+													</form>
 								</div>
+																
+		
 								
-								
-							</form>
+
 						</div>
 					</div>
 				</div>

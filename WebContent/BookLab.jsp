@@ -26,7 +26,7 @@ ArrayList<String> timing_IDs = data.getAvailableTimingIDs();
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Book</title>
-
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  
 <link rel="stylesheet" type="text/css"
 	href="assets/css/bootstrap.min.css">
 
