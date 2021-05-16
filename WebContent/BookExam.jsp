@@ -54,15 +54,15 @@ ArrayList<String> timing_IDs = data.getAvailableTimingIDs();
 
 
   <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
+   <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <div class="logo">
                            AUS
-                        </a>
+                        </div>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -70,7 +70,7 @@ ArrayList<String> timing_IDs = data.getAvailableTimingIDs();
                             <li><a href="staffindex.html#book">Book</a></li>
                             <li><a href="staffindex.html#faq">FAQ</a>
                             </li>
-                            <li><a href="staffindex.html#contact-us" >Contact Us</a></li>
+  
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
                                 <ul>

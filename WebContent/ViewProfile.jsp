@@ -61,11 +61,11 @@ ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
 							<li><a href="staffindex.html">Home</a></li>
 							<li><a href="staffindex.html#book">Book</a></li>
 							<li><a href="staffindex.html#faq">FAQ</a></li>
-							<li><a href="staffindex.html#contact-us">Contact Us</a></li>
+			
 							<li class="submenu"><a href="javascript:;"><i
 									class="fa fa-user-circle"></i></a>
 								<ul>
-									<li><a href="ViewProfile.html">View Profile</a></li>
+									<li><a href="ViewProfile.jsp">View Profile</a></li>
 									<li><a href="index.html">Sign out</a></li>
 								</ul></li>
 						</ul>

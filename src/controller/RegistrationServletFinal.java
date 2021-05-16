@@ -60,6 +60,7 @@ public class RegistrationServletFinal extends HttpServlet
 		}
 		catch(SQLException e)
 		{
+			response.sendRedirect("error.html");
 			e.printStackTrace();
 		}
 		

@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		System.out.println("email entered is " + email + " and password entered is " + password);
+		RequestDispatcher req = null;
 		if(model.validateUser(email, password)) 
 		{
 			//check type, then redirect appropriately
@@ -41,7 +42,7 @@ public class LoginServlet extends HttpServlet
 			session.setAttribute("data", new DataHandler());
 			// todo: replace Sarah with actual account name
 			request.setAttribute("name", "Sarah");
-			RequestDispatcher req = null;
+		
 			if(model.getAccountType(email, password) == 0)
 			{
 				session.setAttribute("type", 0);
@@ -55,14 +56,16 @@ public class LoginServlet extends HttpServlet
 			else if(model.getAccountType(email, password) == 2)
 			{
 				session.setAttribute("type", 2);
-				req = request.getRequestDispatcher("adminindex.html");
+				req = request.getRequestDispatcher("adminindex.jsp");
 			}
 			req.include(request, response);
 		} 
-		
-		else 
-		{
-			response.sendRedirect("loginerror.html");
+	
+		else {
+			request.setAttribute("error", "User/Password is wrong!");
+			req = request.getRequestDispatcher("error.jsp");
+			req.include(request, response);
+//			response.sendRedirect("loginerror.html");
 		}
 	}
 

@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +34,7 @@ public class ApproveDenyProofServlet extends HttpServlet
 		
 		String[] checkedPics = request.getParameterValues("checkedPics");
 		DataHandler data = (DataHandler)session.getAttribute("data");
-		
+		RequestDispatcher req = null;
 		if(request.getParameter("approve") != null)
 		{
 			for(String pic_ID : checkedPics )
@@ -44,9 +45,11 @@ public class ApproveDenyProofServlet extends HttpServlet
 				}
 				catch(SQLException e)
 				{
+					req = request.getRequestDispatcher("error.jsp");
+					req.include(request, response);
 					e.printStackTrace();
 				}
-			}
+			}			
 		}
 		else if(request.getParameter("deny") != null)
 		{
@@ -58,10 +61,15 @@ public class ApproveDenyProofServlet extends HttpServlet
 				}
 				catch(SQLException e)
 				{
+					req = request.getRequestDispatcher("error.jsp");
+					req.include(request, response);
 					e.printStackTrace();
 				}
 			}
+	
 		}
+		req = request.getRequestDispatcher("ManageUsersIntermediate.html");
+		req.include(request, response);
 	}
 
 }

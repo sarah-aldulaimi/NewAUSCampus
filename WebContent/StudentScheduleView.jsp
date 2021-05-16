@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/templatemo-lava.css">
 
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
+      <link rel="stylesheet" href="assets/css/tablestyle.css">
     
 </head>
 <body>
@@ -50,15 +51,14 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
-                            <li class="scroll-to-section"><a href="#book" class="menu-item">Book</a></li>
-                            <li class="scroll-to-section"><a href="#faq" class="menu-item">FAQ</a>
+                            <li class="scroll-to-section"><a href="studentindex.jsp#welcome" class="menu-item">Home</a></li>
+                            <li class="scroll-to-section"><a href="studentindex.jsp#book" class="menu-item">Book</a></li>
+                            <li class="scroll-to-section"><a href="studentindex.jsp#faq" class="menu-item">FAQ</a>
                             </li>
-                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li>
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
                                 <ul>
-                                    <li><a href="ViewProfile.html" >View Profile</a></li>
+                                    <li><a href="ViewProfile.jsp" >View Profile</a></li>
                              
                                     <li><a href="index.html">Sign out</a></li>
   
@@ -75,18 +75,23 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
-<div class ="table">
+<div class ="table" >
+
 	<table id="myTable" class="table" data-page-length="25"
 		data-order="[[ 1, &quot;asc&quot; ]]">
 
 		<thead>
-					<h2>Display a Session
-	</h2>
-			<tr style="background-color: rgb(164, 62, 46)">
-				<th>Booking ID</th>
-				<th>Course Code</th>
-				<th>Student ID</th>
-				<th>Classroom</th>				
+
+			<tr style="background-color: rgb(164, 62, 46); color:white;">
+					<th>Booking ID</th>
+				<th>CRN</th>
+				<th>User ID</th>
+				<th>Reservation Owner</th>
+				<th>Room Name</th>	
+				<th>Date</th>
+				<th>FROM</th>	
+				<th>TO </th>
+				<th>Nature of Booking </th>				
 			</tr>
 		</thead>
 		<tbody>
@@ -94,12 +99,16 @@
         for(StudentSchedule s:list){%>
 			<%-- Arranging data in tabular form 
         --%>
-			<tr>
+	<tr>
 				<td><%=s.getBooking_ID()%></td>
 				<td><%=s.getCourse_code()%></td>
 				<td><%=s.getUser_ID()%></td>
+				<td><%=s.getUser_Name()%></td>
 				<td><%=s.getRoom_ID()%></td>
-
+				<td><%=s.getDate()%></td>	
+				<td><%=s.getStart()%></td>	
+				<td><%=s.getEnd()%></td>	
+				<td><%=s.getType()%></td>	
 			</tr>
 			<%}%>
 		</tbody>

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="dbAccess.DataHandler, java.sql.ResultSet" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +81,12 @@
     <!-- ***** Header Area End ***** -->
 
     
-   <%String name = "Jeremy";%>
+   <%
+   DataHandler data = new DataHandler(); 
+   
+   ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
+   String name = rs.getString("fname");
+   %>
 
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
@@ -133,10 +141,10 @@
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>03</h2>
-                            <img src="assets/images/calender.png" alt="">
-                            <h4>View Proctor Schedule</h4>
+                             <img src="assets/images/test.png" alt="">
+                            <h4>View Profile</h4>
                             <p></p>
-                            <a href="Book.html" class="main-button">
+                            <a href="ViewProfile.jsp" class="main-button">
                                 View Now
                             </a>
                         </div>

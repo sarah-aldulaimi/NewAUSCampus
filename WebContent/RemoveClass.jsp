@@ -1,4 +1,14 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dbAccess.DataHandler, java.util.ArrayList" %>
+<% 
+System.out.println(session.getAttribute("id"));
+System.out.println(session.getAttribute("type"));
+DataHandler data = new DataHandler(); 
+ArrayList<String> labs = data.getAllLabs();
+ArrayList<String> classes = data.getAllRooms();
+boolean T=true, F=false;
+String L="Lab", R="Class";
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,17 +59,17 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <div class="logo">
+                        <a href="index.html" class="logo">
                            AUS
-                        </div>
+                        </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="staffindex.html">Home</a></li>
+                            <li><a href="adminindex.html">Home</a></li>
                             <li><a href="staffindex.html#book">Book</a></li>
                             <li><a href="staffindex.html#faq">FAQ</a>
                             </li>
-  
+                            <li><a href="staffindex.html#contact-us" >Contact Us</a></li>
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
                                 <ul>
@@ -99,44 +109,42 @@
 						data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
 					<div class="wrapper" id="form-wrapper">
 						<div class="inner">
-							<form id="booking-form" method="post" action="ReserveServlet">
-								<h3>Exam Form</h3>
+							<form id="booking-form" method="post" action="RemoveClassServlet">
+								<h3>Delete Class Form</h3>
 								<div class="form-group">
 									<div class="form-wrapper">
-										<label for="">Course</label>
+										<label for="">All Classes</label>
 										<div class="box">
-											<select name = "course">							
+											<select name = "AvailableClasses">
+											<%
+											for(int i=0;i<classes.size();i++)
+											{
+												System.out.println(classes.get(i));
+											%>
+											<option value="<%=classes.get(i)%>"><%=classes.get(i)%></option>
+											<% 
+											}
+											%>
+											
 											</select>
 										</div>
 									</div>
-									<div class="form-wrapper">
-										<label for="">Room</label> 					
-										<div class="box">
-											<select name = "room">
-									</select>
-										</div>
-									</div>
+									
 								</div>
+						
 						<div class="form-wrapper">
-									<label for="">Date</label> 
-									<input type="date" id ="date" name="date" placeholder="yyyy-mm-dd" />
+									<label for="">Enter password to confirm</label> 
+									<input type="password" id ="password" name="password" placeholder="password " required />
 								</div>
 									<div class="form-group">
 	
-								<div class="form-wrapper">
-									<label for="">Time</label>  
-									<div class="box">
-								  		<select name = "time">
-										</select>
-										</div>
-								</div>			
-</div>
-								<div class="checkbox">
-									<label> <input type="checkbox"> I accept the
-										Terms of Use & Privacy Policy. <span class="checkmark"></span>
-									</label>
+								
+									
 								</div>
 								<button type="submit" id="form-submit" class="main-button">Submit</button>
+								</div>
+								
+								
 							</form>
 						</div>
 					</div>

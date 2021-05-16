@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +45,7 @@
 		<img src="assets/images/aus1.jpg" style="margin-left: 20px">
 	</header>
 	<!-- ***** Features Big Item Start ***** -->
-	
+<% String message = (String)request.getAttribute("error");%>
 	<section class="section" id="register">
 		<div class="center">
 			<div
@@ -51,29 +53,20 @@
 				data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
 				<div class="wrapper" id="form-wrapper">
 					<div class="inner">
-						
-							
-
-							
-							<div class="alert alert-danger" role="alert">
-								Error faced!</div>
+						<div class="alert alert-danger" role="alert">
+							<%out.println(message);%></div>
 						<a href="index.html">Press Here to be redirected to the login page </a>
-						
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</section>
 	<section>
-
 		<div class="wave wave1"></div>
 		<div class="wave wave2"></div>
 		<div class="wave wave3"></div>
 		<div class="wave wave4"></div>
-
 	</section>
-
 	<!-- jQuery -->
 	<script src="assets/js/jquery-2.1.0.min.js"></script>
 
@@ -93,4 +86,3 @@
 
 
 </body>
-</html>

@@ -23,6 +23,8 @@
 
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
     
+         <link rel="stylesheet" href="assets/css/tablestyle.css">
+    
 </head>
 <body>
 
@@ -38,7 +40,7 @@
 
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
+      <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -50,21 +52,19 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
-                            <li class="scroll-to-section"><a href="#book" class="menu-item">Book</a></li>
-                            <li class="scroll-to-section"><a href="#faq" class="menu-item">FAQ</a>
-                            </li>
-                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li>
+                            <li><a href="adminindex.jsp">Home</a></li>
+                            <li><a href="adminindex.jsp#book">Manage</a></li>
+                 
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
                                 <ul>
-                                    <li><a href="ViewProfile.html" >View Profile</a></li>
-                             
-                                    <li><a href="index.html">Sign out</a></li>
+                                    <li><a href="ViewProfile.jsp">View Profile</a></li>
+         
+                                    <li><a href="index.html" >Sign out</a></li>
   
                                 </ul>
                             </li>
-                                                    </ul>
+						</ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -73,6 +73,7 @@
                 </div>
             </div>
         </div>
+        	
     </header>
     <!-- ***** Header Area End ***** -->
 <div class ="table">

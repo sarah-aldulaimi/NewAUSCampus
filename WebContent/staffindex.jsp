@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@ page import="dbAccess.DataHandler, java.sql.ResultSet" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,8 +74,12 @@
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
     
-   <%String name = (String)request.getAttribute("name");%>
-    
+      <%
+   DataHandler data = new DataHandler(); 
+   
+   ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
+   String name = rs.getString("fname");
+   %>
     
         <!-- ***** Header Text Start ***** -->
         <div class="header-text">
@@ -128,10 +133,9 @@
                             <h2>03</h2>
                             <img src="assets/images/calender.png" alt="">
                             <h4>View Schedule</h4>
-                            <p></p>
-                            <a href="Book.html" class="main-button">
-                                View Now
-                            </a>
+                       <form  method="Get" action='InstructorScheduleServlet'>
+                            <button class="main-button" type ="submit">Display schedule</button>
+                        </form>
                         </div>
                     </div>
                 </div>

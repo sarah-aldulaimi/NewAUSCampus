@@ -43,10 +43,14 @@ public class RegistrationServletStep extends HttpServlet
 		String password = request.getParameter("password");
 		String confirmPass = request.getParameter("confirmpass");
 		String type = request.getParameter("type");
+		String dept = request.getParameter("dept");
 		
 		if(password.equals(confirmPass) == false)
 		{
 			//error
+		}
+		if(dept.length() >10) {
+			response.sendRedirect("error.html");
 		}
 		
 		else

@@ -64,11 +64,9 @@ String L="Lab", R="Class";
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="adminindex.html">Home</a></li>
-                            <li><a href="staffindex.html#book">Book</a></li>
-                            <li><a href="staffindex.html#faq">FAQ</a>
-                            </li>
-                            <li><a href="staffindex.html#contact-us" >Contact Us</a></li>
+                            <li><a href="adminindex.jsp">Home</a></li>
+                            <li><a href="adminindex.jsp#book">Manage</a></li>
+                 
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
                                 <ul>
@@ -167,15 +165,16 @@ String L="Lab", R="Class";
 									
 								</div>
 								<button type="submit" id="form-submit" class="main-button">Submit</button>
+												</form>
 								</div>
 								
 								
-							</form>
+			
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+
 	</section>
 	<!-- ***** Features Big Item End ***** -->
 

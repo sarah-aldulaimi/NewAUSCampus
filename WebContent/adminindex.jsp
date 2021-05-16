@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
+  <%@ page import="dbAccess.DataHandler, java.sql.ResultSet" %>
 <Head>
 
     <meta charset="utf-8">
@@ -38,25 +37,25 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                               <div class="logo">
+                        <div class="logo">
                            AUS
                         </div>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
-                            <li class="scroll-to-section"><a href="#book" class="menu-item">Manage</a></li>
-                    
+                            <li><a href="adminindex.jsp">Home</a></li>
+                            <li><a href="adminindex.jsp#book">Manage</a></li>
+                 
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
                                 <ul>
-                                    <li><a href="ViewProfile.jsp" >View Profile</a></li>
-                             
-                                    <li><a href="index.html">Sign out</a></li>
+                                    <li><a href="ViewProfile.jsp">View Profile</a></li>
+         
+                                    <li><a href="index.html" >Sign out</a></li>
   
                                 </ul>
                             </li>
-                                                    </ul>
+						</ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -65,13 +64,21 @@
                 </div>
             </div>
         </div>
+        	
     </header>
     <!-- ***** Header Area End ***** -->
 
+<%
+   DataHandler data = new DataHandler(); 
+   
+   ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
+   String name = rs.getString("fname");
+   %>
+   
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
     
-<!--    <%  String name = request.getParameter("full_name");%> -->
+<!--   
     
     
         <!-- ***** Header Text Start ***** -->
@@ -80,9 +87,9 @@
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>Welcome </h1>
+                       <h1>Welcome <em><%out.println(name); %></em></h1>
                         <p>Due to the recent pandemic access to campus has been extremely limited. Through this service we hope to better provide for students</p> 
-                        <a href="#book" class="main-button-slider">Book a class now</a>
+                        <a href="#book" class="main-button-slider">Manage System</a>
                     </div>
                 </div>
             </div>
@@ -103,7 +110,7 @@
                             <img src="assets/images/users.png" alt="">
                             <h4>Users Management</h4>
                             <p></p>
-                            <a href="BookLab.html" class="main-button">Manage</a>
+                            <a href="ManageUsersIntermediate.html" class="main-button">Manage</a>
                         </div>
                     </div>
                 </div>
@@ -113,9 +120,10 @@
                         <div class="features-icon">
                             <h2>02</h2>
                             <img src="assets/images/booking.png" alt="">
-                            <h4>Booking Management</h4>
-                            <p></p>
-                            <a href="BookExam.html" class="main-button">Manage</a>
+                            <h4>Manage Reservations</h4>
+                            <a href="ManageReservationsIntermediate.html" class="main-button">
+                                Manage
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -127,28 +135,17 @@
                             <img src="assets/images/room.png" alt="">
                             <h4>Room Management</h4>
                             <p></p>
-                            <a href="Book.html" class="main-button">
+                            <a href="ManageRoomIntermediate.html" class="main-button">
                                 Manage
                             </a>
                         </div>
                     </div>
                 </div>
-<!--                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" -->
-<!--                     data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s"> -->
-<!--                     <div class="features-item"> -->
-<!--                         <div class="features-icon"> -->
-<!--                             <h2>04</h2> -->
-<!--                             <img src="assets/images/booking.png" alt=""> -->
-<!--                             <h4>Proof Management</h4> -->
-<!--                             <p></p> -->
-<!--                             <a href="validate.jsp" class="main-button">Manage</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div> -->
+               
             </div>
         </div>
     </section>
-    <!-- ***** Features Big Item End yeah ***** -->
+    <!-- ***** Features Big Item End ***** -->
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
