@@ -79,14 +79,14 @@ public class ModifyRoomServlet extends HttpServlet
 			}
 			else
 			{
-				RequestDispatcher req = request.getRequestDispatcher("error.html");
+				RequestDispatcher req = request.getRequestDispatcher("error.jsp");
 				req.include(request, response);
 			}
 		} 
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
-			RequestDispatcher req = request.getRequestDispatcher("error.html");
+			RequestDispatcher req = request.getRequestDispatcher("error.jsp");
 			req.include(request, response);
 		}
 	}

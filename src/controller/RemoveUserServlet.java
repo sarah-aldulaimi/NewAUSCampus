@@ -50,13 +50,13 @@ public class RemoveUserServlet extends HttpServlet
 						}
 						else
 						{
-							RequestDispatcher req = request.getRequestDispatcher("error.html");
+							RequestDispatcher req = request.getRequestDispatcher("error.jsp");
 							req.include(request, response);
 						}
 					}
 					else
 					{
-						RequestDispatcher req = request.getRequestDispatcher("error.html");
+						RequestDispatcher req = request.getRequestDispatcher("error.jsp");
 						req.include(request, response);
 					}
 				}
@@ -65,6 +65,8 @@ public class RemoveUserServlet extends HttpServlet
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
+			RequestDispatcher req = request.getRequestDispatcher("error.jsp");
+			req.include(request, response);
 		}
 	}
 

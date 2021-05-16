@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,6 +46,8 @@ public class ApproveDenyProofServlet extends HttpServlet
 				catch(SQLException e)
 				{
 					e.printStackTrace();
+					RequestDispatcher req = request.getRequestDispatcher("error.jsp");
+					req.include(request, response);
 				}
 			}
 		}
@@ -59,9 +62,14 @@ public class ApproveDenyProofServlet extends HttpServlet
 				catch(SQLException e)
 				{
 					e.printStackTrace();
+					RequestDispatcher req = request.getRequestDispatcher("error.jsp");
+					req.include(request, response);
 				}
 			}
 		}
+		
+		RequestDispatcher req = request.getRequestDispatcher("adminindex.jsp");
+		req.include(request, response);
 	}
 
 }

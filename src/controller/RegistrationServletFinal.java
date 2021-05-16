@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -61,6 +62,8 @@ public class RegistrationServletFinal extends HttpServlet
 		catch(SQLException e)
 		{
 			e.printStackTrace();
+			RequestDispatcher req = request.getRequestDispatcher("error.jsp");
+			req.include(request, response);
 		}
 		
 		session.removeAttribute("fname");
@@ -72,5 +75,4 @@ public class RegistrationServletFinal extends HttpServlet
 		session.removeAttribute("type");
 		response.sendRedirect("index.html");
 	}
-
 }
