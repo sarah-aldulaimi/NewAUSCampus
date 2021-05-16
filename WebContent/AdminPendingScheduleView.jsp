@@ -80,8 +80,6 @@
 		data-order="[[ 1, &quot;asc&quot; ]]">
 
 		<thead>
-					<h2>Display a Session
-	</h2>
 			<tr style="background-color: rgb(164, 62, 46)">
 				<th>Booking ID</th>
 				<th>CRN</th>
@@ -128,7 +126,7 @@
   display:block;">Submit</button>
   </form>
 </div>
- <div class="right-image-decor"></div>
+
 <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 

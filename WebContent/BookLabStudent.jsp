@@ -65,9 +65,9 @@ ArrayList<String> timing_IDs = data.getAvailableTimingIDs();
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="staffindex.html">Home</a></li>
-                            <li><a href="staffindex.html#book">Book</a></li>
-                            <li><a href="staffindex.html#faq">FAQ</a>
+                            <li><a href="studentindex.jsp">Home</a></li>
+                            <li><a href="studentindex.jsp#book">Book</a></li>
+                            <li><a href="studentindex.jsp#faq">FAQ</a>
                             </li>
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>

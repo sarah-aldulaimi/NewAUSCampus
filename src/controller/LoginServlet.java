@@ -40,8 +40,6 @@ public class LoginServlet extends HttpServlet
 			HttpSession session = request.getSession();
 			session.setAttribute("id", model.getAccountID(email, password));
 			session.setAttribute("data", new DataHandler());
-			// todo: replace Sarah with actual account name
-			request.setAttribute("name", "Sarah");
 		
 			if(model.getAccountType(email, password) == 0)
 			{

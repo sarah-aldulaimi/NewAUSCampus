@@ -119,7 +119,7 @@
                             <h2>01</h2>
                             <img src="assets/images/lab.png" alt="">             
                             <h4>Book a Lab</h4>
-                            <a href="BookLab.jsp" class="main-button">Book a Lab</a>
+                            <a href="BookLabStudent.jsp" class="main-button">Book a Lab</a>
                         </div>
                     </div>
                 </div>

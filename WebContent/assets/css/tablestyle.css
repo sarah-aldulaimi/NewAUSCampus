@@ -6,7 +6,7 @@ td, th {
 
 
 .table {
-	 display:inline; 
+	 display:fixed; 
 	 position:fixed; 
 	 margin-left:80px; 
 	 margin-top:100px; 
