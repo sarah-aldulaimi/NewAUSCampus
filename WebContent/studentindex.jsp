@@ -48,9 +48,9 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <div class="logo">
                            AUS
-                        </a>
+                        </div>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -58,7 +58,7 @@
                             <li class="scroll-to-section"><a href="#book" class="menu-item">Book</a></li>
                             <li class="scroll-to-section"><a href="#faq" class="menu-item">FAQ</a>
                             </li>
-                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li>
+                   
 								<li class="submenu">
                                 <a href="javascript:;"><i class="fa fa-user-circle"></i></a>
                                 <ul>

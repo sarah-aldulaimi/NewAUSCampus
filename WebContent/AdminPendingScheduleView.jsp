@@ -115,7 +115,6 @@
 				<td>
 				<form id="picture-select" method="post" action="ApproveDenyReservationServlet">
 				<input type="checkbox" name="booking_ID" value=<%=s.getBooking_ID()%>>
-				
 				</td>
 			</tr>
 			<%}%>
