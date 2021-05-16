@@ -13,13 +13,13 @@ import javax.servlet.http.HttpSession;
 
 import dbAccess.DataHandler;
 
-@WebServlet("/ReserveServlet")
-public class ReserveServlet extends HttpServlet 
+@WebServlet("/AddRoomServlet")
+public class AddRoomServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
 	DataHandler data = new DataHandler();
        
-    public ReserveServlet() 
+    public AddRoomServlet() 
     {
         super();
     }
@@ -33,27 +33,37 @@ public class ReserveServlet extends HttpServlet
 	{
 		HttpSession session = request.getSession();
 				
-		String CRN = request.getParameter("course");
-		String room = request.getParameter("room");
-		int timing = Integer.parseInt(request.getParameter("time"));
-		String date = request.getParameter("date");
-		System.out.println(CRN + " " + room + " " + timing + " " + date);
+		String avail = request.getParameter("Available");
+		boolean available =false;
+		
+		String type= request.getParameter("room");
+		int room_type =1;
+		if(type.equals("Lab"))
+		{
+			room_type=0;
+		}
+		if(avail.equals("true"))
+		{
+			available=true;
+		}
+		
+		String building = request.getParameter("Building");
+		String room_ID = request.getParameter("room_ID");
+		System.out.println(avail);
+		System.out.println(room_ID + " " + type+ " " +building + " " + avail + " ");
 		
 		try 
 		{
-			data.addLabReservation(CRN, (int)session.getAttribute("id"), timing, date, room);
-			int type =data.checkAccountType((int)session.getAttribute("id"));
-			if(type==0)
+			if(data.AddRoom(room_ID,room_type, building, available))
 			{
-				RequestDispatcher req = request.getRequestDispatcher("studentindex.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("adminindex.jsp");
 				req.include(request, response);
 			}
-			else if(type==1)
+			else
 			{
-				RequestDispatcher req = request.getRequestDispatcher("staffindex.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("error.html");
 				req.include(request, response);
 			}
-			
 		} 
 		catch (SQLException e) 
 		{

@@ -13,13 +13,13 @@ import javax.servlet.http.HttpSession;
 
 import dbAccess.DataHandler;
 
-@WebServlet("/ReserveServlet")
-public class ReserveServlet extends HttpServlet 
+@WebServlet("/RemoveLabServlet")
+public class RemoveLabServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
 	DataHandler data = new DataHandler();
        
-    public ReserveServlet() 
+    public RemoveLabServlet() 
     {
         super();
     }
@@ -33,27 +33,29 @@ public class ReserveServlet extends HttpServlet
 	{
 		HttpSession session = request.getSession();
 				
-		String CRN = request.getParameter("course");
-		String room = request.getParameter("room");
-		int timing = Integer.parseInt(request.getParameter("time"));
-		String date = request.getParameter("date");
-		System.out.println(CRN + " " + room + " " + timing + " " + date);
-		
+		String Lab = request.getParameter("AvailableLabs");
+		String password =request.getParameter("password");
+		System.out.println(Lab);
+		int id = (int)session.getAttribute("id");
+		System.out.println(id);
 		try 
 		{
-			data.addLabReservation(CRN, (int)session.getAttribute("id"), timing, date, room);
-			int type =data.checkAccountType((int)session.getAttribute("id"));
-			if(type==0)
+			if(data.checkPass(id, password))
+				if(data.RemoveRoom(Lab))
+				{
+					RequestDispatcher req = request.getRequestDispatcher("adminindex.jsp");
+					req.include(request, response);
+				}
+				else
+				{
+					RequestDispatcher req = request.getRequestDispatcher("error.html");
+					req.include(request, response);
+				}
+			else
 			{
-				RequestDispatcher req = request.getRequestDispatcher("studentindex.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("error.html");
 				req.include(request, response);
 			}
-			else if(type==1)
-			{
-				RequestDispatcher req = request.getRequestDispatcher("staffindex.jsp");
-				req.include(request, response);
-			}
-			
 		} 
 		catch (SQLException e) 
 		{

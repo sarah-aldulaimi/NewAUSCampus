@@ -67,6 +67,12 @@ public class DBConnection
 		return result;
 	}
 
+	public int executePrepared(String strSQL) throws SQLException 
+	{
+		prepStatement = con.prepareStatement(strSQL);
+		return prepStatement.executeUpdate();
+	}
+	
 	public int executePrepared(String strSQL, int user_ID, InputStream photo) throws SQLException //only used for upload photo
 	{
 		prepStatement = con.prepareStatement(strSQL);

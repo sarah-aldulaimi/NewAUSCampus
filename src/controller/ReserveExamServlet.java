@@ -13,13 +13,13 @@ import javax.servlet.http.HttpSession;
 
 import dbAccess.DataHandler;
 
-@WebServlet("/ReserveServlet")
-public class ReserveServlet extends HttpServlet 
+@WebServlet("/ReserveExamServlet")
+public class ReserveExamServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
 	DataHandler data = new DataHandler();
        
-    public ReserveServlet() 
+    public ReserveExamServlet() 
     {
         super();
     }
@@ -41,19 +41,16 @@ public class ReserveServlet extends HttpServlet
 		
 		try 
 		{
-			data.addLabReservation(CRN, (int)session.getAttribute("id"), timing, date, room);
-			int type =data.checkAccountType((int)session.getAttribute("id"));
-			if(type==0)
-			{
-				RequestDispatcher req = request.getRequestDispatcher("studentindex.jsp");
-				req.include(request, response);
-			}
-			else if(type==1)
+			if(data.addClassReservation(CRN, (int)session.getAttribute("id"), timing, date, room))
 			{
 				RequestDispatcher req = request.getRequestDispatcher("staffindex.jsp");
 				req.include(request, response);
 			}
-			
+			else
+			{
+				RequestDispatcher req = request.getRequestDispatcher("error.html");
+				req.include(request, response);
+			}
 		} 
 		catch (SQLException e) 
 		{

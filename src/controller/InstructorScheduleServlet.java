@@ -19,14 +19,14 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class ScheduleServlet
  */
-@WebServlet("/ScheduleServlet")
-public class ScheduleServlet extends HttpServlet {
+@WebServlet("/InstructorScheduleServlet")
+public class InstructorScheduleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ScheduleServlet() {
+    public InstructorScheduleServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,7 +46,7 @@ public class ScheduleServlet extends HttpServlet {
 			System.out.println("Inside Try Catch");
 			int  booking_id,CRN,user_id;
 			String uname,room_id,date,start_time,end_time,type;
-			rs = data.getScheduleInformation((int) session.getAttribute("id"));
+			rs = data.getInstructorScheduleInformation((int) session.getAttribute("id"));
 			while(rs.next())
 			{
 				booking_id = rs.getInt("booking_ID");
@@ -81,7 +81,7 @@ public class ScheduleServlet extends HttpServlet {
 		//new StudentSchedule(103, 10000,31145,"Adham","ESB101"));
 		
 		request.setAttribute("list", list);
-		RequestDispatcher req = request.getRequestDispatcher("StudentScheduleView.jsp");
+		RequestDispatcher req = request.getRequestDispatcher("InstructorScheduleView.jsp");
 		req.forward(request, response);
 	}
 
