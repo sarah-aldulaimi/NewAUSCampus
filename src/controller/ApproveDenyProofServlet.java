@@ -48,7 +48,6 @@ public class ApproveDenyProofServlet extends HttpServlet
 					req = request.getRequestDispatcher("error.jsp");
 					req.include(request, response);
 					e.printStackTrace();
-					RequestDispatcher req = request.getRequestDispatcher("error.jsp");
 					req.include(request, response);
 				}
 			}			
@@ -66,7 +65,7 @@ public class ApproveDenyProofServlet extends HttpServlet
 					req = request.getRequestDispatcher("error.jsp");
 					req.include(request, response);
 					e.printStackTrace();
-					RequestDispatcher req = request.getRequestDispatcher("error.jsp");
+
 					req.include(request, response);
 				}
 			}

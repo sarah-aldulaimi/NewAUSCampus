@@ -61,7 +61,8 @@ public class AddRoomServlet extends HttpServlet
 			}
 			else
 			{
-				RequestDispatcher req = request.getRequestDispatcher("error.jsp");
+				request.setAttribute("error", "Room Already Added!");
+				RequestDispatcher req =request.getRequestDispatcher("error.jsp");
 				req.include(request, response);
 			}
 		} 
