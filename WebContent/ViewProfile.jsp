@@ -4,6 +4,7 @@
 System.out.println(session.getAttribute("id"));
 DataHandler data = (DataHandler)session.getAttribute("data");
 ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
+int type = data.checkAccountType((int)session.getAttribute("id"));
 %>
 <!DOCTYPE html>
 <html>
@@ -58,10 +59,33 @@ ResultSet rs = data.getAccountInformation((int)session.getAttribute("id"));
 						<!-- ***** Logo End ***** -->
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
-							<li><a href="staffindex.html">Home</a></li>
-							<li><a href="staffindex.html#book">Book</a></li>
-							<li><a href="staffindex.html#faq">FAQ</a></li>
-			
+						<%
+						if(type == 0)
+						{
+						%>
+							<li><a href="studentindex.jsp">Home</a></li>
+							<li><a href="studentindex.jsp#book">Book</a></li>
+							<li><a href="studentindex.jsp#faq">FAQ</a></li>
+							<li><a href="studentindex.jsp#contact-us">Contact Us</a></li>
+						<% 
+						}
+						if(type == 1)
+						{
+						%>
+							<li><a href="staffindex.jsp">Home</a></li>
+							<li><a href="staffindex.jsp#book">Book</a></li>
+							<li><a href="staffindex.jsp#faq">FAQ</a></li>
+							<li><a href="staffindex.jsp#contact-us">Contact Us</a></li>
+						<% 
+						}
+						if(type == 2)
+						{
+						%>
+							<li><a href="adminindex.jsp">Home</a></li>
+							<li><a href="adminindex.jsp#book">Book</a></li>
+						<% 
+						}
+						%>
 							<li class="submenu"><a href="javascript:;"><i
 									class="fa fa-user-circle"></i></a>
 								<ul>
