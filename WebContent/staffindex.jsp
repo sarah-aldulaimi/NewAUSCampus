@@ -166,8 +166,7 @@
                             <div class="faq-content">
 
                                 <h4>How recent should my PCR test be?</h4>
-                                <p>“Nullam hendrerit, elit a semper pharetra, ipsum nibh tristique tortor, in tempus
-                                    urna elit in mauris.”</p>
+                                <p>The last PCR test taken must not have exceeded 15 days </p>
                      
                             </div>
                         </div>
@@ -175,9 +174,10 @@
               
                             <div class="faq-content">
       
-                                <h4>Martino Tino</h4>
-                                <p>“Morbi non mi luctus felis molestie scelerisque. In ac libero viverra, placerat est
-                                    interdum, rhoncus leo.”</p>
+                                <h4>Why can I not see my reservation?</h4>
+                                <p>If you've made a reservation and cannot view it in your schedule, it could mean that it 
+                                has not been approved by the administration yet. </p>
+                                
                         
                             </div>
                         </div>
@@ -185,19 +185,8 @@
             
                             <div class="faq-content">
            
-                                <h4>George Tasa</h4>
-                                <p>“Fusce rutrum in dolor sit amet lobortis. Ut at vehicula justo. Donec quam dolor,
-                                    congue a fringilla sed, maximus et urna.”</p>
-                           
-                            </div>
-                        </div>
-                        <div class="item service-item">
-      
-                            <div class="faq-content">
-      
-                                <h4>Sir James</h4>
-                                <p>"Fusce rutrum in dolor sit amet lobortis. Ut at vehicula justo. Donec quam dolor,
-                                    congue a fringilla sed, maximus et urna."</p>
+                                <h4>How much time in advance should I make my reservation?</h4>
+                                <p>Please make your reservation at least a week in advance.</p>
                            
                             </div>
                         </div>
