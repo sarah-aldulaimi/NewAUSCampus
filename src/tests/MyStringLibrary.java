@@ -1,7 +1,6 @@
 package tests;
 
 //Part 1
-//Place this code in MyStringLibrary.java package stringlibrary;
 //Define example class in file MyStringLibrary.java 
 	public class MyStringLibrary{
 
