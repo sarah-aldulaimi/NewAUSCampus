@@ -66,7 +66,7 @@ int type = data.checkAccountType((int)session.getAttribute("id"));
 							<li><a href="studentindex.jsp">Home</a></li>
 							<li><a href="studentindex.jsp#book">Book</a></li>
 							<li><a href="studentindex.jsp#faq">FAQ</a></li>
-							<li><a href="studentindex.jsp#contact-us">Contact Us</a></li>
+		
 						<% 
 						}
 						if(type == 1)
@@ -75,7 +75,7 @@ int type = data.checkAccountType((int)session.getAttribute("id"));
 							<li><a href="staffindex.jsp">Home</a></li>
 							<li><a href="staffindex.jsp#book">Book</a></li>
 							<li><a href="staffindex.jsp#faq">FAQ</a></li>
-							<li><a href="staffindex.jsp#contact-us">Contact Us</a></li>
+	
 						<% 
 						}
 						if(type == 2)
