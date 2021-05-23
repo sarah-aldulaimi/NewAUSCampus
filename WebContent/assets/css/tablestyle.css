@@ -7,10 +7,9 @@
 
 .table { 
 	 display:block;  
-/* 	 position:fixed;  */ 
 	 margin-left:80px;  
  	 margin-top:80px; 
  	 width:80%; 
-	 overflow: scroll; 
+	 overflow: scroll !important;
 
  } 
