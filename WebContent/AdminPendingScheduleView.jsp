@@ -75,6 +75,7 @@
         	
     </header>
     <!-- ***** Header Area End ***** -->
+    <div class="left-image-decor"></div>
 <div class ="table">
 	<table id="myTable" class="table" data-page-length="25"
 		data-order="[[ 1, &quot;asc&quot; ]]">

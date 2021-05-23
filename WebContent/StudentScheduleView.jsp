@@ -83,7 +83,7 @@
 		<thead>
 
 			<tr style="background-color: rgb(164, 62, 46); color:white;">
-					<th>Booking ID</th>
+				<th>Booking ID</th>
 				<th>CRN</th>
 				<th>User ID</th>
 				<th>Reservation Owner</th>
