@@ -18,8 +18,7 @@ public class DataHandler
 	public boolean checkAccount(String email, String pass) throws SQLException 
 	{
 		String query = "SELECT email, password FROM users where email = '" + email + "' and password = '" + pass + "'";
-		System.out.println(query);
-		
+		System.out.println(query);		
 		rs = dbCon.executeStatement(query);
 		if(rs.isBeforeFirst())
 			return true;
@@ -89,6 +88,15 @@ int result = dbCon.executeUpdate(query);
 			System.out.println(query);
 			int res = dbCon.executeUpdate(query);
 		}
+	}
+	public String checkPhone(String email, String pass) throws SQLException
+	{
+		String query = "select phone from users where email = '" + email + "' and password = '" + pass + "'";
+		rs = dbCon.executeStatement(query);
+		rs.beforeFirst();
+		rs.next();
+		
+		return rs.getString("phone");
 	}
 	
 	public int checkAccountType(String email, String pass) throws SQLException
@@ -264,7 +272,7 @@ int result = dbCon.executeUpdate(query);
 
 		return false;
 	}
-	public boolean RemoveRoom(String room_ID ) throws SQLException
+	public boolean RemoveRoom(String room_ID) throws SQLException
 	{
 		String query = "delete from rooms where room_ID =  '"  + room_ID + "'";
 		System.out.println(query);
@@ -298,7 +306,7 @@ int result = dbCon.executeUpdate(query);
 	
 	
 	
-	public boolean ModifyRoom(String old_id,String room_ID, int type, String building, boolean avail ) throws SQLException
+	public boolean ModifyRoom(String old_id,String room_ID, int type, String building, boolean avail) throws SQLException
 	{
 		
 		//ArrayList<String> rooms = getRoomDetails(room_ID);

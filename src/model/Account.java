@@ -8,7 +8,6 @@ public class Account
 {
 	DataHandler data = new DataHandler();
 	boolean validLogin = false;
-	
 	public boolean validateUser(String email, String pwd) 
 	{
 		try
@@ -20,8 +19,7 @@ public class Account
 			e.printStackTrace();
 			return false;
 		}
-	}
-	
+	}	
 	public int getAccountID(String email, String pwd)
 	{
 		try
@@ -33,8 +31,7 @@ public class Account
 			e.printStackTrace();
 			return -1;
 		}
-	}
-	
+	}	
 	public int getAccountType(String user, String pwd)
 	{
 		try
